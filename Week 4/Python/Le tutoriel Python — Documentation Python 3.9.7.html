@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://docs.python.org/fr/3.9/tutorial/index.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Le tutoriel Python — Documentation Python 3.9.7</title>
+    <link rel="stylesheet" href="./Le tutoriel Python — Documentation Python 3.9.7_files/pydoctheme.css" type="text/css">
+    <link rel="stylesheet" href="./Le tutoriel Python — Documentation Python 3.9.7_files/pygments.css" type="text/css">
+    
+    <script id="documentation_options" data-url_root="../" src="./Le tutoriel Python — Documentation Python 3.9.7_files/documentation_options.js.download"></script>
+    <script src="./Le tutoriel Python — Documentation Python 3.9.7_files/jquery.js.download"></script>
+    <script src="./Le tutoriel Python — Documentation Python 3.9.7_files/underscore.js.download"></script>
+    <script src="./Le tutoriel Python — Documentation Python 3.9.7_files/doctools.js.download"></script>
+    <script src="./Le tutoriel Python — Documentation Python 3.9.7_files/language_data.js.download"></script>
+    <script src="./Le tutoriel Python — Documentation Python 3.9.7_files/translations.js.download"></script>
+    
+    <script src="./Le tutoriel Python — Documentation Python 3.9.7_files/sidebar.js.download"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml" title="Recherchez dans Documentation Python 3.9.7" href="https://docs.python.org/fr/3.9/_static/opensearch.xml">
+    <link rel="author" title="À propos de ces documents" href="https://docs.python.org/fr/3.9/about.html">
+    <link rel="index" title="Index" href="https://docs.python.org/fr/3.9/genindex.html">
+    <link rel="search" title="Recherche" href="https://docs.python.org/fr/3.9/search.html">
+    <link rel="copyright" title="Copyright" href="https://docs.python.org/fr/3.9/copyright.html">
+    <link rel="next" title="1. Mise en bouche" href="https://docs.python.org/fr/3.9/tutorial/appetite.html">
+    <link rel="prev" title="Changements" href="https://docs.python.org/fr/3.9/whatsnew/changelog.html">
+    <link rel="canonical" href="https://docs.python.org/3/tutorial/index.html">
+    
+      
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="./Le tutoriel Python — Documentation Python 3.9.7_files/py.png">
+    
+    <script type="text/javascript" src="./Le tutoriel Python — Documentation Python 3.9.7_files/copybutton.js.download"></script>
+    
+     
+
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://docs.python.org/fr/3.9/genindex.html" title="Index général" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/3.9/py-modindex.html" title="Index des modules Python">modules</a> |</li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/3.9/tutorial/appetite.html" title="1. Mise en bouche" accesskey="N">suivant</a> |</li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/3.9/whatsnew/changelog.html" title="Changements" accesskey="P">précédent</a> |</li>
+
+    <li><img src="./Le tutoriel Python — Documentation Python 3.9.7_files/py.png" alt="" style="vertical-align: middle; margin-top: -1px"></li>
+    <li><a href="https://www.python.org/">Python</a> »</li>
+    
+
+    <li><span class="language_switcher_placeholder"><select id="language_select"><option value="en">English</option><option value="es">Spanish</option><option value="fr" selected="selected">French</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="pt-br">Brazilian Portuguese</option><option value="zh-cn">Simplified Chinese</option><option value="zh-tw">Traditional Chinese</option></select></span> <span class="version_switcher_placeholder"><select id="version_select"><option value="3.11">dev (3.11)</option><option value="3.10">pre (3.10)</option><option value="3.9" selected="selected">3.9.7</option><option value="3.8">3.8</option><option value="3.7">3.7</option><option value="3.6">3.6</option><option value="3.5">3.5</option><option value="2.7">2.7</option></select></span> <a href="https://docs.python.org/fr/3.9/" id="indexlink">Documentation</a> »</li>
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="" role="search">
+        <form class="inline-search" action="https://docs.python.org/fr/3.9/search.html" method="get">
+          <input placeholder="Recherche rapide" type="text" name="q">
+          <input type="submit" value="Go">
+          <input type="hidden" name="check_keywords" value="yes">
+          <input type="hidden" name="area" value="default">
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-python-tutorial">
+<span id="tutorial-index"></span><h1>Le tutoriel Python<a class="headerlink" href="https://docs.python.org/fr/3.9/tutorial/index.html#the-python-tutorial" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Python est un langage de programmation puissant et facile à apprendre. Il dispose de structures de données de haut niveau et permet une approche simple mais efficace de la programmation orientée objet. Parce que sa syntaxe est élégante, que son typage est dynamique et qu'il est interprété, Python est un langage idéal pour l'écriture de scripts et le développement rapide d'applications dans de nombreux domaines et sur la plupart des plateformes.</p>
+<p>L'interpréteur Python et sa vaste bibliothèque standard sont disponibles librement, sous forme de sources ou de binaires, pour toutes les plateformes majeures depuis le site Internet <a class="reference external" href="https://www.python.org/">https://www.python.org/</a> et peuvent être librement redistribués. Ce même site distribue et pointe vers des modules, des programmes et des outils tiers. Enfin, il constitue une source de documentation.</p>
+<p>L'interpréteur Python peut être facilement étendu par de nouvelles fonctions et types de données implémentés en C ou C++ (ou tout autre langage appelable depuis le C). Python est également adapté comme langage d'extension pour personnaliser des applications.</p>
+<p>Dans ce tutoriel, nous introduisons, de façon informelle, les concepts de base ainsi que les fonctionnalités du langage Python et de son écosystème. Il est utile de disposer d'un interpréteur Python à portée de main pour mettre en pratique les notions abordées. Si ce n'est pas possible, pas de souci, les exemples sont inclus et le tutoriel est adapté à une lecture "hors ligne".</p>
+<p>Pour une description des objets et modules de la bibliothèque standard, reportez-vous à <a class="reference internal" href="https://docs.python.org/fr/3.9/library/index.html#library-index"><span class="std std-ref">La bibliothèque standard</span></a>. <a class="reference internal" href="https://docs.python.org/fr/3.9/reference/index.html#reference-index"><span class="std std-ref">La référence du langage Python</span></a> présente le langage de manière plus formelle. Pour écrire des extensions en C ou en C++, lisez <a class="reference internal" href="https://docs.python.org/fr/3.9/extending/index.html#extending-index"><span class="std std-ref">Extension et intégration de l'interpréteur Python</span></a> et <a class="reference internal" href="https://docs.python.org/fr/3.9/c-api/index.html#c-api-index"><span class="std std-ref">Manuel de référence de l'API Python/C</span></a>. Des livres sont également disponibles qui couvrent Python dans le détail.</p>
+<p>L'ambition de ce tutoriel n'est pas d'être exhaustif et de couvrir chaque fonctionnalité, ni même toutes les fonctionnalités les plus utilisées. Il vise, en revanche, à introduire les fonctionnalités les plus notables et à vous donner une bonne idée de la saveur et du style du langage. Après l'avoir lu, vous serez capable de lire et d'écrire des modules et des programmes Python et vous serez prêt à en apprendre davantage sur les modules de la bibliothèque Python décrits dans <a class="reference internal" href="https://docs.python.org/fr/3.9/library/index.html#library-index"><span class="std std-ref">La bibliothèque standard</span></a>.</p>
+<p>Pensez aussi à consulter le <a class="reference internal" href="https://docs.python.org/fr/3.9/glossary.html#glossary"><span class="std std-ref">Glossaire</span></a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/appetite.html">1. Mise en bouche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/interpreter.html">2. Mode d'emploi de l'interpréteur Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/interpreter.html#invoking-the-interpreter">2.1. Lancement de l'interpréteur</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/interpreter.html#argument-passing">2.1.1. Passage d'arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/interpreter.html#interactive-mode">2.1.2. Mode interactif</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/interpreter.html#the-interpreter-and-its-environment">2.2. L'interpréteur et son environnement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/interpreter.html#source-code-encoding">2.2.1. Encodage du code source</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/introduction.html">3. Introduction informelle à Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/introduction.html#using-python-as-a-calculator">3.1. Utilisation de Python comme une calculatrice</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/introduction.html#numbers">3.1.1. Les nombres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/introduction.html#strings">3.1.2. Chaînes de caractères</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/introduction.html#lists">3.1.3. Listes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/introduction.html#first-steps-towards-programming">3.2. Premiers pas vers la programmation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html">4. D'autres outils de contrôle de flux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#if-statements">4.1. L'instruction <code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#for-statements">4.2. L'instruction <code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#the-range-function">4.3. La fonction <code class="xref py py-func docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops">4.4. Les instructions <code class="xref std std-keyword docutils literal notranslate"><span class="pre">break</span></code>, <code class="xref std std-keyword docutils literal notranslate"><span class="pre">continue</span></code> et les clauses <code class="xref std std-keyword docutils literal notranslate"><span class="pre">else</span></code> au sein des boucles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#pass-statements">4.5. L'instruction <code class="xref std std-keyword docutils literal notranslate"><span class="pre">pass</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#defining-functions">4.6. Définir des fonctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#more-on-defining-functions">4.7. Davantage sur la définition des fonctions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#default-argument-values">4.7.1. Valeur par défaut des arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#keyword-arguments">4.7.2. Les arguments nommés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#special-parameters">4.7.3. Paramètres spéciaux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#positional-or-keyword-arguments">4.7.3.1. Les arguments positionnels-ou-nommés</a></li>
+<li class="toctree-l4"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#positional-only-parameters">4.7.3.2. Paramètres positionnels uniquement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#keyword-only-arguments">4.7.3.3. Arguments nommés uniquement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#function-examples">4.7.3.4. Exemples de fonctions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#recap">4.7.3.5. Récapitulatif</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#arbitrary-argument-lists">4.7.4. Listes d'arguments arbitraires</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#unpacking-argument-lists">4.7.5. Séparation des listes d'arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#lambda-expressions">4.7.6. Fonctions anonymes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#documentation-strings">4.7.7. Chaînes de documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#function-annotations">4.7.8. Annotations de fonctions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/controlflow.html#intermezzo-coding-style">4.8. Aparté&nbsp;: le style de codage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html">5. Structures de données</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html#more-on-lists">5.1. Compléments sur les listes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html#using-lists-as-stacks">5.1.1. Utilisation des listes comme des piles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html#using-lists-as-queues">5.1.2. Utilisation des listes comme des files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html#list-comprehensions">5.1.3. Compréhensions de listes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html#nested-list-comprehensions">5.1.4. Compréhensions de listes imbriquées</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html#the-del-statement">5.2. L'instruction <code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html#tuples-and-sequences">5.3. Tuples et séquences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html#sets">5.4. Ensembles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html#dictionaries">5.5. Dictionnaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html#looping-techniques">5.6. Techniques de boucles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html#more-on-conditions">5.7. Plus d'informations sur les conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/datastructures.html#comparing-sequences-and-other-types">5.8. Comparer des séquences avec d'autres types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/modules.html">6. Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/modules.html#more-on-modules">6.1. Les modules en détail</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/modules.html#executing-modules-as-scripts">6.1.1. Exécuter des modules comme des scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/modules.html#the-module-search-path">6.1.2. Les dossiers de recherche de modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/modules.html#compiled-python-files">6.1.3. Fichiers Python «&nbsp;compilés&nbsp;»</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/modules.html#standard-modules">6.2. Modules standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/modules.html#the-dir-function">6.3. La fonction <code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/modules.html#packages">6.4. Les paquets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/modules.html#importing-from-a-package">6.4.1. Importer * depuis un paquet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/modules.html#intra-package-references">6.4.2. Références internes dans un paquet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/modules.html#packages-in-multiple-directories">6.4.3. Paquets dans plusieurs dossiers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/inputoutput.html">7. Les entrées/sorties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/inputoutput.html#fancier-output-formatting">7.1. Formatage de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/inputoutput.html#formatted-string-literals">7.1.1. Les chaines de caractères formatées (<em>f-strings</em>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/inputoutput.html#the-string-format-method">7.1.2. La méthode de chaine de caractères <code class="docutils literal notranslate"><span class="pre">format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/inputoutput.html#manual-string-formatting">7.1.3. Formatage de chaînes à la main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/inputoutput.html#old-string-formatting">7.1.4. Anciennes méthodes de formatage de chaînes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/inputoutput.html#reading-and-writing-files">7.2. Lecture et écriture de fichiers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/inputoutput.html#methods-of-file-objects">7.2.1. Méthodes des objets fichiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/inputoutput.html#saving-structured-data-with-json">7.2.2. Sauvegarde de données structurées avec le module <code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/errors.html">8. Erreurs et exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/errors.html#syntax-errors">8.1. Les erreurs de syntaxe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/errors.html#exceptions">8.2. Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/errors.html#handling-exceptions">8.3. Gestion des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/errors.html#raising-exceptions">8.4. Déclencher des exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/errors.html#exception-chaining">8.5. Chaînage d'exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/errors.html#user-defined-exceptions">8.6. Exceptions définies par l'utilisateur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/errors.html#defining-clean-up-actions">8.7. Définition d'actions de nettoyage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/errors.html#predefined-clean-up-actions">8.8. Actions de nettoyage prédéfinies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html">9. Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#a-word-about-names-and-objects">9.1. Objets et noms&nbsp;: préambule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#python-scopes-and-namespaces">9.2. Portées et espaces de nommage en Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#scopes-and-namespaces-example">9.2.1. Exemple de portées et d'espaces de nommage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#a-first-look-at-classes">9.3. Une première approche des classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#class-definition-syntax">9.3.1. Syntaxe de définition des classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#class-objects">9.3.2. Objets classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#instance-objects">9.3.3. Objets instances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#method-objects">9.3.4. Objets méthode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#class-and-instance-variables">9.3.5. Classes et variables d'instance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#random-remarks">9.4. Remarques diverses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#inheritance">9.5. Héritage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#multiple-inheritance">9.5.1. Héritage multiple</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#private-variables">9.6. Variables privées</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#odds-and-ends">9.7. Trucs et astuces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#iterators">9.8. Itérateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#generators">9.9. Générateurs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/classes.html#generator-expressions">9.10. Expressions et générateurs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html">10. Survol de la bibliothèque standard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html#operating-system-interface">10.1. Interface avec le système d'exploitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html#file-wildcards">10.2. Jokers sur les noms de fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html#command-line-arguments">10.3. Paramètres passés en ligne de commande</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html#error-output-redirection-and-program-termination">10.4. Redirection de la sortie d'erreur et fin d'exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html#string-pattern-matching">10.5. Recherche de motifs dans les chaînes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html#mathematics">10.6. Mathématiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html#internet-access">10.7. Accès à internet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html#dates-and-times">10.8. Dates et heures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html#data-compression">10.9. Compression de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html#performance-measurement">10.10. Mesure des performances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html#quality-control">10.11. Contrôle qualité</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib.html#batteries-included">10.12. Piles fournies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib2.html">11. Survol de la bibliothèque standard -- Deuxième partie</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib2.html#output-formatting">11.1. Formatage de l'affichage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib2.html#templating">11.2. Gabarits (<em>templates</em> en anglais)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib2.html#working-with-binary-data-record-layouts">11.3. Traitement des données binaires</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib2.html#multi-threading">11.4. Fils d'exécution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib2.html#logging">11.5. Journalisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib2.html#weak-references">11.6. Références faibles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib2.html#tools-for-working-with-lists">11.7. Outils pour les listes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/stdlib2.html#decimal-floating-point-arithmetic">11.8. Arithmétique décimale à virgule flottante</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/venv.html">12. Environnements virtuels et paquets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/venv.html#introduction">12.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/venv.html#creating-virtual-environments">12.2. Création d'environnements virtuels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/venv.html#managing-packages-with-pip">12.3. Gestion des paquets avec <em>pip</em></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/whatnow.html">13. Pour aller plus loin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/interactive.html">14. Édition interactive des entrées et substitution d'historique</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/interactive.html#tab-completion-and-history-editing">14.1. Complétion automatique et édition de l'historique</a></li>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/interactive.html#alternatives-to-the-interactive-interpreter">14.2. Alternatives à l'interpréteur interactif</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/floatingpoint.html">15. Arithmétique en nombres à virgule flottante&nbsp;: problèmes et limites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/floatingpoint.html#representation-error">15.1. Erreurs de représentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/appendix.html">16. Annexe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/appendix.html#interactive-mode">16.1. Mode interactif</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/appendix.html#error-handling">16.1.1. Gestion des erreurs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/appendix.html#executable-python-scripts">16.1.2. Scripts Python exécutables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/appendix.html#the-interactive-startup-file">16.1.3. Configuration du mode interactif</a></li>
+<li class="toctree-l3"><a class="reference internal" href="https://docs.python.org/fr/3.9/tutorial/appendix.html#the-customization-modules">16.1.4. Modules de personnalisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="float: left; margin-right: 0px; width: 202px;">
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="https://docs.python.org/fr/3.9/whatsnew/changelog.html" title="Chapitre précédent">Changements</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="https://docs.python.org/fr/3.9/tutorial/appetite.html" title="Chapitre suivant"><span class="section-number">1. </span>Mise en bouche</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://docs.python.org/fr/3.9/bugs.html">Signalement de bogue</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.9/Doc/tutorial/index.rst" rel="nofollow">Montrer le code source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      <div id="sidebarbutton" title="Réduire la barre latérale" style="border-radius: 0px 5px 5px 0px; color: rgb(68, 68, 68); background-color: rgb(204, 204, 204); font-size: 1.2em; cursor: pointer; height: 3432.19px; padding-top: 1px; padding-left: 1px; margin-left: 218px;"><span style="display: block; position: fixed; top: 318.5px;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://docs.python.org/fr/3.9/genindex.html" title="Index général">index</a></li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/3.9/py-modindex.html" title="Index des modules Python">modules</a> |</li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/3.9/tutorial/appetite.html" title="1. Mise en bouche">suivant</a> |</li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/3.9/whatsnew/changelog.html" title="Changements">précédent</a> |</li>
+
+    <li><img src="./Le tutoriel Python — Documentation Python 3.9.7_files/py.png" alt="" style="vertical-align: middle; margin-top: -1px"></li>
+    <li><a href="https://www.python.org/">Python</a> »</li>
+    
+
+    <li>
+      <a href="https://docs.python.org/fr/3.9/index.html">3.9.7 Documentation</a> »
+    </li>
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="" role="search">
+        <form class="inline-search" action="https://docs.python.org/fr/3.9/search.html" method="get">
+          <input placeholder="Recherche rapide" type="text" name="q">
+          <input type="submit" value="Go">
+          <input type="hidden" name="check_keywords" value="yes">
+          <input type="hidden" name="area" value="default">
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="https://docs.python.org/fr/3.9/copyright.html">Copyright</a> 2001-2021, Python Software Foundation.
+    <br>
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br>
+    <br>
+
+    Mis à jour le sept. 03, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
+    <br>
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+
+    <script type="text/javascript" src="./Le tutoriel Python — Documentation Python 3.9.7_files/switchers.js.download"></script>
+  
+</body></html>

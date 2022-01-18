@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+        #container {
+          width: 400px;
+          height: 400px;
+          position: relative;
+          background: yellow;
+        }
+        #animate {
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          background-color: red;
+
+        }
+        </style>
+    </head>
+    <body>
+         <p><button onclick="myMove ()">Click Me</button></p>
+        <div id="container">
+          <div id="animate"></div>
+        </div>
+        <script>
+
+  function(myMove){
+   let animate = document.getElementById("animate");
+  let timer = setInterval("myMove", 500);
+  let deplacement = 0 
+  let id=setInterval(function(){
+    if(deplacement==350){
+    }else{
+      deplacement++;
+      animate.style.right=deplacement+"px"
+      element.style=deplacement+'px'
+    }
+  }, 5)
+  }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+<body>
+
+<button id="jsstyle" onclick=fct_click()>style</button> //ici on a ajoute la function directement dans html, dans cript c'est la procedure indiquee
+
+<script>
+	let a= document.getElementbyid('jsstyle')
+
+	
+	a.ondblckick(function(){
+		a.style.background="crimson"
+	})
+	a.addEventlistener('mouseover', fct_mouseover)
+		function fct_click(){
+			a.style.width="150px"
+			a.style.width='130px'
+		}
+
+
+    	function mouseover(e) { 
+            e.target.style.color='white'
+            setTimeout(wait, 2000)//ici changement du backgound apres 2 secondes
+        } 
+   function wait(){
+   		a.style.background='darkcyan'
+   }
+
+   a.addEventlistener('mouseout, fct_mouseout') 
+   function mouseout(){
+   	a.textcontent='youpiii'
+   	a.style.marginLeft='100px'
+   	a.fontSize='30px'
+   }
+
+</script>
+</body>
+</html>
+/
+   	

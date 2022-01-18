@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+<body>
+
+<article>
+    <h1> Some Facts </h1>
+    <h2> The Chocolate </h2>
+    <h3> History of the chocolate </h3>
+    <p> Chocolate is made from tropical Theobroma cacao tree seeds. 
+    Its earliest use dates back to the Olmec civilization in Mesoamerica.</p>
+    <p> After the European discovery of the Americas, chocolate became 
+    very popular in the wider world, and its demand exploded. </p>
+    <p> Chocolate has since become a popular food product that millions enjoy every day, 
+    thanks to its unique, rich, and sweet taste.</p> 
+    <p> But what effect does eating chocolate have on our health?</p> 
+</article>
+
+<button> Bold</button>
+<script>
+	//retrieve ou acceder a h1
+
+let h1=document.getElementsByTagName('h1')[0]
+console.log(h1)
+
+//remove the last paragraph
+let article=document.getElementsByTagName('article')[0]
+let p=article.lastElementChild
+article.removeChild(p)
+
+//add a event listener on h2 
+let h2= article.children [1]
+h2.onclick=function (){ //h2.addEventListener('onclick', onclick)
+
+	h2.style.background = 'red'
+
+}
+//add event sur h3
+let h3=document.querySelector('h3')
+h3.addEventListener('click', click)
+function click(){
+	h2.style.display = "none"
+}
+let bold=document.querySelector('button')
+bold.addEventListener('click', makebold)
+function makebold(){
+	article.style.fontWeight= "bold"
+}
+
+h1.addEvenlistener("mouseover" over)
+function over(){
+	h1.style.fontSize=Math.random ()*200+ 'px'
+}
+
+	</script>
+	</body>
+</html>

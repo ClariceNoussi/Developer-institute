@@ -1,0 +1,128 @@
+ <!DOCTYPE html>
+ <html>
+     <head>
+         <style>
+             
+         </style>
+     </head>
+     <body>
+        <form>
+            <input type="button" name="test" value="Click me" onmouseover="inform()">
+        </form>
+        <table id="sampleTable" border="1"> 
+            <tr>
+                <td>Row1 cell1</td> 
+                <td>Row1 cell2</td>
+            </tr> 
+            <tr>
+                <td>Row2 cell1</td> 
+                <td>Row2 cell2</td>
+            </tr> 
+            </table>
+            
+            <input type="button" onclick="insertRow()" value="Insert row">  
+            <input type="button" onclick="insertColumn()" value="Insert 3rd column">  
+            <button onclick="alert(this.innerHTML +' right')">Click me</button>
+      
+            <button id="btn">Click me</button>
+            <button id="btn1">Hey Hey</button>
+            <br><br><br><br>
+            <button id="jsstyle" onclick="fct_click()">Style</button> 
+
+
+            <form name="my">
+                <input name="one" value="1" onchange="alert(this.value)">
+                <input name="two" value="2">
+            </form>
+            <form id="form1" onsubmit="getvalue()"> 
+                <label>First name: </label><input type="text" name="fname" value="David"><br> 
+                <label>Last name: </label><input type="text" name="lname" value="BenGurion"><br> 
+                <input type="submit" value="Submit"> 
+            </form> 
+        
+        <script>
+            let a = document.getElementById('jsstyle')
+            a.addEventListener('mouseout', MouseOut)
+
+
+            function getvalue(){
+                alert("Hi my name is "+document.forms[2].elements[0].value + " "+document.forms[2].elements[1].value)
+            }
+            function MouseOut(){
+                a.textContent = 'Youpiiiiiiiiiiiiiiiii'
+                a.style.marginLeft = '100px'
+                a.style.fontSize = '30px'
+            }
+            a.ondblclick=function(){
+                a.style.background = 'crimson'
+            }
+            a.addEventListener('mouseover', fct_mouseOver)
+            function fct_click(){
+                a.style.width ='150px'
+                a.style.height ='130px'
+            }
+            function fct_mouseOver(e){
+                e.target.style.color = 'white'
+                setTimeout(wait, 2000)
+            }
+            function wait(){
+                a.style.background = 'darkcyan'
+            }
+
+
+            function inform(){
+                alert("You clicked me")
+            }
+            let table = document.getElementById('sampleTable')
+
+            function insertRow(){
+                let new_line = document.createElement('tr')
+                let new_cell1 = document.createElement('td')
+                let new_cell2 = document.createElement('td')
+                let txt1 = document.createTextNode('Row 1 cell')
+                let txt2 = document.createTextNode('Row 2 cell')
+                new_cell1.appendChild(txt1)
+                new_cell2.appendChild(txt2)
+                new_line.appendChild(new_cell1)
+                new_line.appendChild(new_cell2)
+                table.appendChild(new_line)
+            }
+
+            function insertColumn(){
+                let lines = document.getElementsByTagName('tr')
+                for (let line of lines){
+                let new_column =document.createElement('td')
+                let txt3 = document.createTextNode('Row 3 cell')
+                new_column.appendChild(txt3)
+                line.appendChild(new_column)
+                }
+            }
+
+
+            let x = document.getElementById("btn")
+            let y = document.getElementById("btn1")
+
+            y.addEventListener("click", RespondClick);
+            y.addEventListener("mouseover", RespondMouseOver);
+
+            x.addEventListener("click", RespondClick); 
+            x.addEventListener("mouseover", RespondMouseOver); 
+            x.addEventListener("mouseout", RespondMouseOut); 
+
+            function RespondClick(e) { 
+                alert("Button Clicked")
+                console.log(e.target)
+            } 
+
+            function RespondMouseOver() { 
+                alert("My mouse is over the btn")
+            } 
+
+            function RespondMouseOut() { 
+                alert("My mouse is out of the btn")
+            }     
+        </script>
+     </body>
+ </html>
+ 
+ 

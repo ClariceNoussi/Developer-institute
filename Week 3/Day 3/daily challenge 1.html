@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+ <head>	
+ </head>
+ <body>
+    <input type='text' id='input' onkeypress= 'check_letters(event)'>
+    <span></span>
+
+
+<script> 
+let letter_pattern =/^[a-zA-Z]+$/
+let output=''
+function check_letters(event){
+    console.log(event.key)
+    if (event.key.match(letter_pattern)){
+        output+=event.key
+        document.querySelector('span').textcontent= output
+    }
+    else{
+        document.querySelector('span').textcontent=''
+    }
+}
+
+</script>
+</body>
+</html>

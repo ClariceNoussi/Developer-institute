@@ -1,0 +1,90 @@
+<html>
+    <head>
+     	<style>
+        
+        *{
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+      }
+      body{
+        background-color: grey;
+    }
+       
+    .left_side {
+        display: grid;
+        grid-template-columns: 80px 80px 80px ;
+        grid-template-rows: repeat(8, 70px);
+        grid-gap: 10px;
+        float: left;
+}
+    button{
+        grid-column: 2/4;
+        width: 120;
+        height: 70;
+        
+        
+}
+    .right_side{ 
+    
+        display: grid;
+        grid-template-columns: repeat(42, 23px);
+        grid-template-rows: repeat(25, 23px);
+        grid-gap: 3px;
+       
+        margin-left: 200px;
+}   
+        </style>
+      
+    </head>
+
+   <body> 
+   
+    <div class='left_side'>
+         <button onclick="clear()">Clear</button>
+
+         <div class="div1" style='background-color:orange'></div>
+         <div class='div2'style='background-color:darkgrey';></div>
+         <div class='div3'style='background-color:red'></div>
+         <div class='div4'style='background-color:indigo';></div>
+         <div class='div5'style='background-color:maroon';></div>
+         <div class='div6' style='background-color: crimson'></div>
+         <div class='div7' style='background-color: yellow'></div>
+         <div class='div8' style='background-color: green'></div>
+         <div class='div9' style='background-color:aliceblue;'></div>
+         <div class='div10' style='background-color:lavender;'></div>
+         <div class='div11' style='background-color:royalblue;'></div>
+         <div class='div12' style='background-color:fuchsia;'></div>
+         <div class='div13' style='background-color:chocolate;'></div>
+         <div class='div14' style='background-color:skyblue;'></div>
+         <div class='div15' style='background-color:purple;'></div>
+         <div class='div16' style='background-color: orangered;'></div>
+         <div class='div17' style='background-color: cyan;'></div>
+         <div class='div18' style='background-color:brown;'></div>
+         <div class='div19' style='background-color:navajowhite;'></div>
+         <div class='div20' style='background-color:black'></div>
+         <div class='div21' style='background-color:salmon;'></div>
+
+    </div>
+    
+   <div class='right_side'></div>
+
+<script>
+    
+    for (i=0; i<1050; i++){      
+    let right_side=document.getElementsByClassName('right_side')[0]
+    //tagname et classname renvoit a une liste donc tjrs preciser l'indice
+    let grid=document.createElement('div')//create elt a tjrs une balise en quote
+    grid.style.background='white'
+    right_side.appendChild(grid) 
+}   
+
+//let color=document.queryselectorAll('grid')
+//let color=" "
+//col.addEventlistener('click', change_color)
+//function change_color(){
+
+
+  </script>
+  </body>
+</html>

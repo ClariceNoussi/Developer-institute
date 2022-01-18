@@ -1,0 +1,83 @@
+<html>
+    <head>
+     	<style>
+		* {
+      box-sizing:border-box;
+    }
+​
+    section {
+      padding: 10px 50px;
+      border: 3px solid black;
+      height: 80%;
+      width: 60%;
+      display:grid;
+      grid-gap: 5px;
+      grid-template-areas: 
+      "a a a a a a "
+      "b b m m m m"
+      "b b m m m m"
+      "s s m m m m"
+      "s s e e e e"
+      "s s e e e e"
+      "i i i i p p"
+      "f f f f f f"
+      ;
+    }
+    
+    .header{
+      grid-area: a;
+      background-color: teal;
+    }
+    .hero{
+      grid-area: b;
+      background-color: orange;
+    }
+    .sidebar{
+      grid-area: s;
+      background-color: rgb(141, 58, 197);
+    }
+    .main{
+      grid-area: m;
+      background-color: palevioletred;
+    }
+    .extra{
+      grid-area: e;
+      background-color: rgb(37, 85, 23);
+    }
+    .images{
+      grid-area: i;
+      background-color: rgb(33, 46, 122);
+    }
+    .posts{
+      grid-area: p;
+      background-color: rgb(145, 255, 0);
+    }
+    .footer{
+      grid-area: f;
+      background-color: rgb(39, 2, 2);
+    }
+	</style>
+ </head>
+  <body>
+    <section>
+      <div class="header">
+        Header 
+      </div> 
+      <div class="hero">Hero
+      </div>
+      <div class="sidebar">Sidebar
+      </div> 
+      <div class="main">Main content <br>
+        Lorem ipsum dolor doloris etcituhgn jbjsdudifbsdub jhbun,
+      </div>
+      <div class="extra">Extra content
+      </div>
+      <div class="images">Related images
+      </div>
+      <div class="posts">Related posts
+      </div>
+      <div class="footer">Footer
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<html>
+<body>
+    <div id="container" name='this div'>Users:</div>
+    <ul class="list">
+      <li>John</li>
+      <li>Pete</li>
+      <li>Conrad</li>
+    </ul>
+    <ul class="list">
+      <li>Sarah</li>
+      <li>Dan</li>
+      <li>Armand</li>
+    </ul>
+    <p id ='text'>DOM Attributes! Yeahhh !!</p> 
+  <script>
+      //Styles operations
+      let paragraph = document.getElementById('text')
+      paragraph.style.background = 'lavender'
+      paragraph.style.textAlign = 'center'
+      paragraph.style.fontSize = '30px'
+      paragraph.style.padding = '25px'
+
+      let _div = document.getElementById('container')
+      //Attributes operations
+        _div.setAttribute('class','div_class')
+        _div.class = 'div_class'
+        _div.setAttribute('href','not_a_link')
+        for (let attributes of _div.attributes){
+            console.log(attributes)
+        }
+      //Accessing the ul nodes and render the elements one by one
+      let list_ul = document.getElementsByTagName('ul')
+      for (let list of list_ul){
+          console.log(list.firstElementChild)
+       
+        }
+      //Accessing to the first li's
+
+
+      //Access the div
+      //1st way
+      let div =document.body.children[0]
+      //2nd way
+      let div1 = document.getElementsByTagName('div')[0]
+      //3rd way
+      let div2 = document.querySelector('div')
+      //4th way
+      let div3 = document.body.firstElementChild
+
+      //Accessing the ul
+      let ul = document.getElementsByTagName('ul')[0]
+      let ul2 = document.body.children[1]
+      let ul3 = document.querySelector('ul')
+      let ul4 = div.nextElementSibling
+
+      //Accessing the 2nd li
+      let li = document.getElementsByTagName('li')[1]
+      let li1 = ul.children[1]
+      let li2 = ul.lastElementChild
+
+      //Modifying the inner HTML
+      console.log(li.innerHTML)
+      console.log(li.textContent)
+      console.log(li.innerText)
+      li.innerHTML = 'Paul replaced Pete'
+
+      let newDiv = document.createElement('div')  
+      let newTextNode = document.createTextNode('Here I am');
+      newDiv.appendChild(newTextNode);
+        ul.appendChild(newDiv);
+        ul.removeChild(ul.firstElementChild)
+  </script>
+</body>
+</html>

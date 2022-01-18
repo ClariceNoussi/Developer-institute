@@ -1,0 +1,2225 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://pythonforbiologists.com/biological-data-exploration-book -->
+<html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" lang="en-US" class="yui3-js-enabled js flexbox canvas canvastext webgl no-touch hashchange history draganddrop rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms no-csstransforms3d csstransitions video audio svg inlinesvg svgclippaths wf-proximanova-n3-active wf-proximanova-n4-active wf-proximanova-n5-active wf-proximanova-n6-active wf-proximanova-n7-active wf-proximanova-i6-active wf-proximanova-i7-active wf-adobegaramondpro-n4-active wf-adobegaramondpro-n6-active wf-adobegaramondpro-n7-active wf-adobegaramondpro-i4-active wf-adobegaramondpro-i7-active wf-active" style="" id="yui_3_17_2_1_1630751069829_139"><div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important"></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- This is Squarespace. --><!-- martin-jones-fx37 -->
+<!--<base href="">--><base href=".">
+
+<title>Biological data exploration book — Python for Biologists</title>
+<link rel="shortcut icon" type="image/x-icon" href="https://assets.squarespace.com/universal/default-favicon.ico">
+<link rel="canonical" href="https://pythonforbiologists.com/biological-data-exploration-book">
+<meta property="og:site_name" content="Python for Biologists">
+<meta property="og:title" content="Biological data exploration book — Python for Biologists">
+<meta property="og:url" content="https://pythonforbiologists.com/biological-data-exploration-book">
+<meta property="og:type" content="website">
+<meta itemprop="name" content="Biological data exploration book — Python for Biologists">
+<meta itemprop="url" content="https://pythonforbiologists.com/biological-data-exploration-book">
+<meta name="twitter:title" content="Biological data exploration book — Python for Biologists">
+<meta name="twitter:url" content="https://pythonforbiologists.com/biological-data-exploration-book">
+<meta name="twitter:card" content="summary">
+<meta name="description" content="">
+<link rel="preconnect" href="https://images.squarespace-cdn.com/">
+<script src="./Biological data exploration book — Python for Biologists_files/11.1.331.js.download" type="text/javascript" async=""></script><script async="" src="./Biological data exploration book — Python for Biologists_files/analytics.js.download"></script><script type="text/javascript" src="./Biological data exploration book — Python for Biologists_files/1YnSSsVyWmhFs1FBjERJ75fek5oyE9vywF2wKhfDEVqfez9IfFHN4UJLFRbh52jhWD9owRb3F2bDFQ8RjDjtZ2jhjDBKFc9h5g7LMkG0j.download"></script>
+<style type="text/css">@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/1be3c2/00000000000000007735e606/30/l?subset_id=2&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/1be3c2/00000000000000007735e606/30/d?subset_id=2&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/1be3c2/00000000000000007735e606/30/a?subset_id=2&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/efe4a5/00000000000000007735e609/30/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/efe4a5/00000000000000007735e609/30/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/efe4a5/00000000000000007735e609/30/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/23e139/00000000000000007735e605/30/l?subset_id=2&fvd=n5&v=3) format("woff2"),url(https://use.typekit.net/af/23e139/00000000000000007735e605/30/d?subset_id=2&fvd=n5&v=3) format("woff"),url(https://use.typekit.net/af/23e139/00000000000000007735e605/30/a?subset_id=2&fvd=n5&v=3) format("opentype");font-weight:500;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/78aca8/00000000000000007735e60d/30/l?subset_id=2&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/78aca8/00000000000000007735e60d/30/d?subset_id=2&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/78aca8/00000000000000007735e60d/30/a?subset_id=2&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/2555e1/00000000000000007735e603/30/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/2555e1/00000000000000007735e603/30/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/2555e1/00000000000000007735e603/30/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/144da4/00000000000000007735e619/30/l?subset_id=2&fvd=i6&v=3) format("woff2"),url(https://use.typekit.net/af/144da4/00000000000000007735e619/30/d?subset_id=2&fvd=i6&v=3) format("woff"),url(https://use.typekit.net/af/144da4/00000000000000007735e619/30/a?subset_id=2&fvd=i6&v=3) format("opentype");font-weight:600;font-style:italic;font-display:auto;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/4de20a/00000000000000007735e604/30/l?subset_id=2&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/4de20a/00000000000000007735e604/30/d?subset_id=2&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/4de20a/00000000000000007735e604/30/a?subset_id=2&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;font-display:auto;}@font-face{font-family:adobe-garamond-pro;src:url(https://use.typekit.net/af/2011b6/00000000000000003b9b00c1/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/2011b6/00000000000000003b9b00c1/27/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/2011b6/00000000000000003b9b00c1/27/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;font-display:auto;}@font-face{font-family:adobe-garamond-pro;src:url(https://use.typekit.net/af/fb3638/00000000000000003b9b00c3/27/l?subset_id=2&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/fb3638/00000000000000003b9b00c3/27/d?subset_id=2&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/fb3638/00000000000000003b9b00c3/27/a?subset_id=2&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;font-display:auto;}@font-face{font-family:adobe-garamond-pro;src:url(https://use.typekit.net/af/af619f/00000000000000003b9b00c5/27/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/af619f/00000000000000003b9b00c5/27/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/af619f/00000000000000003b9b00c5/27/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;font-display:auto;}@font-face{font-family:adobe-garamond-pro;src:url(https://use.typekit.net/af/5cace6/00000000000000003b9b00c2/27/l?subset_id=2&fvd=i4&v=3) format("woff2"),url(https://use.typekit.net/af/5cace6/00000000000000003b9b00c2/27/d?subset_id=2&fvd=i4&v=3) format("woff"),url(https://use.typekit.net/af/5cace6/00000000000000003b9b00c2/27/a?subset_id=2&fvd=i4&v=3) format("opentype");font-weight:400;font-style:italic;font-display:auto;}@font-face{font-family:adobe-garamond-pro;src:url(https://use.typekit.net/af/6c275f/00000000000000003b9b00c6/27/l?subset_id=2&fvd=i7&v=3) format("woff2"),url(https://use.typekit.net/af/6c275f/00000000000000003b9b00c6/27/d?subset_id=2&fvd=i7&v=3) format("woff"),url(https://use.typekit.net/af/6c275f/00000000000000003b9b00c6/27/a?subset_id=2&fvd=i7&v=3) format("opentype");font-weight:700;font-style:italic;font-display:auto;}</style><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript" src="./Biological data exploration book — Python for Biologists_files/modern.js.download" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./Biological data exploration book — Python for Biologists_files/legacy.js.download" crossorigin="anonymous" nomodule=""></script><script type="text/javascript">SQUARESPACE_ROLLUPS = {};</script>
+<script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].js = ["//assets.squarespace.com/universal/scripts-compressed/moment-js-vendor-26ddeab7fa5f90b6c8cb3-min.en-US.js"]; })(SQUARESPACE_ROLLUPS, 'squarespace-moment_js_vendor');</script>
+<script crossorigin="anonymous" src="./Biological data exploration book — Python for Biologists_files/moment-js-vendor-26ddeab7fa5f90b6c8cb3-min.en-US.js.download"></script><script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].js = ["//assets.squarespace.com/universal/scripts-compressed/cldr-resource-pack-be81d1ce004cbca505842-min.en-US.js"]; })(SQUARESPACE_ROLLUPS, 'squarespace-cldr_resource_pack');</script>
+<script crossorigin="anonymous" src="./Biological data exploration book — Python for Biologists_files/cldr-resource-pack-be81d1ce004cbca505842-min.en-US.js.download"></script><script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].js = ["//assets.squarespace.com/universal/scripts-compressed/common-vendors-stable-5f58a0e5b599c258afba7-min.en-US.js"]; })(SQUARESPACE_ROLLUPS, 'squarespace-common_vendors_stable');</script>
+<script crossorigin="anonymous" src="./Biological data exploration book — Python for Biologists_files/common-vendors-stable-5f58a0e5b599c258afba7-min.en-US.js.download"></script><script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].js = ["//assets.squarespace.com/universal/scripts-compressed/common-vendors-52662bceb2b67fc4cb93d-min.en-US.js"]; })(SQUARESPACE_ROLLUPS, 'squarespace-common_vendors');</script>
+<script crossorigin="anonymous" src="./Biological data exploration book — Python for Biologists_files/common-vendors-52662bceb2b67fc4cb93d-min.en-US.js.download"></script><script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].js = ["//assets.squarespace.com/universal/scripts-compressed/common-d62cde61c6b54d2444af4-min.en-US.js"]; })(SQUARESPACE_ROLLUPS, 'squarespace-common');</script>
+<script crossorigin="anonymous" src="./Biological data exploration book — Python for Biologists_files/common-d62cde61c6b54d2444af4-min.en-US.js.download"></script><script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].js = ["//assets.squarespace.com/universal/scripts-compressed/commerce-7b7920ebd2bf8868f7ed8-min.en-US.js"]; })(SQUARESPACE_ROLLUPS, 'squarespace-commerce');</script>
+<script crossorigin="anonymous" src="./Biological data exploration book — Python for Biologists_files/commerce-7b7920ebd2bf8868f7ed8-min.en-US.js.download"></script><style type="text/css">/*
+Note: These mediaQueries should be kept in sync with the mediaQueries in src/shared/utils/mediaQueries.js as well as
+the mediaQueries in styles-v6/_variables-media-queries.less
+
+In short, if you change one, change them all
+*/
+/*
+  Currently we are only targeting mobile devices up to 432px. This should include all the most typical iOS, Android
+  and Windows phones. Tablet devices are currently not being targeted for the mobile experience.
+ */
+@media screen and (max-width: 432px) {
+  .mobile-hidden {
+    display: none;
+  }
+}
+@media screen and (max-width: 432px) {
+  .subDesktop-hidden {
+    display: none;
+  }
+}
+@media screen and (min-width: 433px) {
+  .desktop-hidden {
+    display: none;
+  }
+}
+._2NN0IlogY {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: -22px;
+  margin-bottom: 22px;
+}
+@media screen and (max-width: 432px) {
+  ._2NN0IlogY {
+    font-size: 12px;
+  }
+}
+._2NN0IlogY ._22qj0noRk {
+  margin: 0 0 0 5px;
+}
+._2NN0IlogY ._2ah9V77Op {
+  margin: 0 5px 0 0;
+}
+._2NN0IlogY .jGZKKkR7F {
+  text-indent: -9999px;
+  background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1128.43 236.88'%3e%3cdefs%3e%3cstyle%3e.cls-2%7bfill:%23fff%7d%3c/style%3e%3c/defs%3e%3cg id='Layer_2' data-name='Layer 2'%3e%3cg id='Layer_1-2' data-name='Layer 1'%3e%3crect width='1128.43' height='236.88' rx='118.44' fill='%23010101'/%3e%3cpath class='cls-2' d='M959.43 78L935 64l-24.79-14.23a24.64 24.64 0 00-36.9 21.37v3.19a4.9 4.9 0 002.45 4.23l11.5 6.59a4.79 4.79 0 007.17-4.15v-7.56a4.87 4.87 0 017.29-4.22l22.65 13 22.58 13a4.87 4.87 0 010 8.45l-22.58 12.95-22.65 13a4.87 4.87 0 01-7.29-4.23v-3.75a24.64 24.64 0 00-36.9-21.37l-24.78 14.22-24.44 14a24.64 24.64 0 000 42.74l24.44 14 24.78 14.21a24.64 24.64 0 0036.9-21.37v-3.19a4.89 4.89 0 00-2.45-4.23l-11.5-6.6a4.79 4.79 0 00-7.17 4.15v7.57A4.87 4.87 0 01866 180l-22.65-13-22.58-13a4.87 4.87 0 010-8.45l22.58-13 22.65-13a4.87 4.87 0 017.29 4.23v3.75A24.64 24.64 0 00910.21 149L935 134.76l24.44-14a24.64 24.64 0 00-.01-42.76zM799 82.68L741.66 201h-23.78l21.41-44.2-33.67-74.12H730l21.63 49.61 23.63-49.61zM226.41 124.68c0-14.11-10.25-24-22.84-24s-22.85 10.08-22.85 24c0 13.78 10.25 24 22.85 24s22.84-9.91 22.84-24m.17 42v-10.92A33.65 33.65 0 01200 168c-23 0-40.49-18.48-40.49-43.34 0-24.69 18.15-43.51 41-43.51a33.51 33.51 0 0126 12.1V82.68h20.66v84zM347.61 148c-7.22 0-9.24-2.69-9.24-9.74V101h13.27V82.68h-13.27V62.19H317.2v20.49h-27.26v-8.35c0-7.06 2.68-9.75 10.08-9.75h4.64V48.29h-10.19c-17.47 0-25.7 5.71-25.7 23.18v11.21H257V101h11.76v65.68h21.17V101h27.27v41.15c0 17.14 6.55 24.53 23.69 24.53h10.92V148zM423.54 117.12c-1.54-10.92-10.42-17.47-20.83-17.47s-19 6.38-21.17 17.47zm-42.17 13.11c1.52 12.43 10.42 19.48 21.68 19.48 8.9 0 15.79-4.2 19.82-10.92h21.67c-5 17.81-21 29.23-42 29.23-25.36 0-43.17-17.8-43.17-43.17s18.81-43.68 43.68-43.68c25 0 43.17 18.48 43.17 43.68a27.52 27.52 0 01-.51 5.38zM580.83 124.68c0-13.61-10.24-24-22.84-24s-22.85 10.08-22.85 24c0 13.78 10.25 24 22.85 24s22.84-10.41 22.84-24M514.31 201V82.68H535V93.6a33.31 33.31 0 0126.55-12.43c22.67 0 40.48 18.65 40.48 43.34S583.86 168 561 168c-10.58 0-19.32-4.2-25.37-11.25V201zM676.46 124.68c0-14.11-10.25-24-22.85-24s-22.85 10.08-22.85 24c0 13.78 10.25 24 22.85 24s22.85-9.91 22.85-24m.16 42v-10.92A33.62 33.62 0 01650.08 168c-23 0-40.48-18.48-40.48-43.34 0-24.69 18.14-43.51 41-43.51a33.48 33.48 0 0126 12.1V82.68h20.67v84zM477.07 90.92a22 22 0 0127.22-7.85v21.42s-7.77-4.8-14.91-3.83-11.66 7.52-11.63 16.29v49.73h-21.34v-84h20.66z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+  background-size: 100% auto;
+  height: 21px;
+  width: 100px;
+  border: 0;
+}
+@media screen and (max-width: 432px) {
+  ._2NN0IlogY .jGZKKkR7F {
+    padding: 0;
+    height: 14px;
+    width: 68px;
+  }
+}
+._2NN0IlogY .ZKX1Pybcw {
+  background: none;
+  border: 0;
+  color: inherit;
+  font-weight: 400;
+  padding-right: 0;
+}
+.yQGo3lgzz {
+  background-color: transparent;
+  top: 0;
+  right: 0;
+  margin: 22px;
+  position: absolute;
+  border: 0;
+}
+@media screen and (max-width:  991px ) {
+  ._3aTQGAkVI {
+    opacity: 0;
+  }
+}
+._2kacNmSX3 {
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transform: translate(50%, -50%);
+  width: 50%;
+  background-color: white;
+  /* Fallback color */
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
+}
+._2kacNmSX3 h3 {
+  color: black;
+  text-transform: none;
+}
+@media screen and (max-width:  991px ) {
+  ._2kacNmSX3 {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+  }
+}
+._2S3PC6QgK {
+  position: fixed;
+  display: none;
+  /* Hidden by default */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.4;
+  z-index: 99;
+}
+</style><style type="text/css">.I5QWflG8d {
+  padding-top: 2rem;
+}
+.cVt6Acs10 {
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
+  list-style-type: none;
+  list-style-position: outside;
+}
+._3lzsfE40b {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+._341vuNDEn {
+  order: 1;
+}
+._35Y-b9QpS {
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0 9px;
+  margin: 0;
+}
+.-Go8zw0yg {
+  display: inline-block;
+}
+._2_JJGKmoS {
+  display: inline-block;
+  width: 100%;
+  padding: 13px 0;
+}
+._3kJMDEIvu {
+  padding-right: 12px;
+}
+.qDM76OXLu {
+  display: inline-flex;
+  width: 50%;
+  margin: 0;
+}
+._3H2DjhTSz {
+  margin: 16px 0 0 0;
+}
+._5R0-8PHhI {
+  margin: 0;
+}
+._2SHVT-zWc {
+  display: inline-flex;
+  width: 50%;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1rem;
+  opacity: 70%;
+}
+.PHeNarxjj {
+  padding: 3px;
+  font-weight: bold;
+}
+._3mhfDmM_o {
+  width: 1rem;
+  height: 1rem;
+  padding-right: 6px;
+  fill: inherit;
+}
+._3mhfDmM_o path {
+  fill: inherit;
+}
+._3JUIkAKJx {
+  width: 100%;
+  border: 1px solid;
+  opacity: 15%;
+}
+._1MeZP3QsN {
+  top: 50%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  max-width: 90%;
+  max-height: 90%;
+}
+._2MQXoTWqV {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  display: flex;
+}
+.EXF8_ab7F {
+  display: flex;
+  align-items: center;
+  margin-top: 22px;
+  line-height: 1;
+}
+.EXF8_ab7F p {
+  margin: 0;
+}
+._2_JJGKmoS ._2Nq6CtXmP {
+  height: 66px;
+  padding: 22px 0 0 0;
+}
+.EXF8_ab7F ._2Nq6CtXmP {
+  height: 33px;
+  padding: 0 11px 0 0;
+}
+._2YOm4v8C1 {
+  display: block;
+  margin: 33px auto;
+  text-transform: uppercase;
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+  background-color: transparent;
+  color: inherit;
+}
+._2YMAVSMEm {
+  display: none;
+}
+._19HY3qkUe {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+._3LLY5N6Qp {
+  margin: 0;
+  opacity: 70%;
+}
+</style><style type="text/css">._6EGmrFtlt {
+  height: 20px;
+  width: 20px;
+  perspective: 80px;
+  margin: auto;
+  padding: 10vw;
+}
+.k8BEXDYGd {
+  background: black;
+  height: 20px;
+  width: 20px;
+  animation-name: _3uv0Rth5y;
+  animation-duration: 1.6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.66, 0, 0.34, 1);
+  transform-style: preserve-3d;
+}
+.-GGUTPx5b {
+  display: none;
+}
+@keyframes _3uv0Rth5y {
+  0% {
+    transform: rotateY(0deg);
+  }
+  12.5% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  62.5% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateZ(180deg);
+  }
+}
+</style><script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].css = ["//assets.squarespace.com/universal/styles-compressed/commerce-0418f029ba9aeb9db8790-min.en-US.css"]; })(SQUARESPACE_ROLLUPS, 'squarespace-commerce');</script>
+<link rel="stylesheet" type="text/css" href="./Biological data exploration book — Python for Biologists_files/commerce-0418f029ba9aeb9db8790-min.en-US.css"><script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].js = ["//assets.squarespace.com/universal/scripts-compressed/performance-3fba3af606f4dadefb3ec-min.en-US.js"]; })(SQUARESPACE_ROLLUPS, 'squarespace-performance');</script>
+<script crossorigin="anonymous" src="./Biological data exploration book — Python for Biologists_files/performance-3fba3af606f4dadefb3ec-min.en-US.js.download" defer=""></script><script data-name="static-context">Static = window.Static || {}; Static.SQUARESPACE_CONTEXT = {"facebookAppId":"314192535267336","facebookApiVersion":"v6.0","rollups":{"squarespace-announcement-bar":{"js":"//assets.squarespace.com/universal/scripts-compressed/announcement-bar-8b0a52c6638870f60ebe6-min.en-US.js"},"squarespace-audio-player":{"css":"//assets.squarespace.com/universal/styles-compressed/audio-player-7273d8fcec67906942b35-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/audio-player-921479f2e354b007c52dc-min.en-US.js"},"squarespace-blog-collection-list":{"css":"//assets.squarespace.com/universal/styles-compressed/blog-collection-list-3d55c64c25996c7633fc2-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/blog-collection-list-41fb020c05858537c749a-min.en-US.js"},"squarespace-calendar-block-renderer":{"css":"//assets.squarespace.com/universal/styles-compressed/calendar-block-renderer-5668de53c0ce16e20cc01-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/calendar-block-renderer-efd0c58a9eed6a4c98706-min.en-US.js"},"squarespace-chartjs-helpers":{"css":"//assets.squarespace.com/universal/styles-compressed/chartjs-helpers-58ae73137091cd0a61360-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/chartjs-helpers-90a05700972d4d6f84fa8-min.en-US.js"},"squarespace-comments":{"css":"//assets.squarespace.com/universal/styles-compressed/comments-eeb99f32a31032af774cb-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/comments-e90a0d0cd2be76bc78b0a-min.en-US.js"},"squarespace-commerce-cart":{"js":"//assets.squarespace.com/universal/scripts-compressed/commerce-cart-5a59912d74656228ddd0e-min.en-US.js"},"squarespace-dialog":{"css":"//assets.squarespace.com/universal/styles-compressed/dialog-7b3fdec47b80fd63e5e6f-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/dialog-2e406079d8a1ecaf0f8ab-min.en-US.js"},"squarespace-events-collection":{"css":"//assets.squarespace.com/universal/styles-compressed/events-collection-5668de53c0ce16e20cc01-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/events-collection-b6629bfb395b931f71443-min.en-US.js"},"squarespace-form-rendering-utils":{"js":"//assets.squarespace.com/universal/scripts-compressed/form-rendering-utils-98d0be332d1c7443be456-min.en-US.js"},"squarespace-forms":{"css":"//assets.squarespace.com/universal/styles-compressed/forms-1cc007b21ede0b73086c9-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/forms-37ca4785bf854358558f0-min.en-US.js"},"squarespace-gallery-collection-list":{"css":"//assets.squarespace.com/universal/styles-compressed/gallery-collection-list-3d55c64c25996c7633fc2-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/gallery-collection-list-cd5d8e548068a3a2586f7-min.en-US.js"},"squarespace-image-zoom":{"css":"//assets.squarespace.com/universal/styles-compressed/image-zoom-60e14b9bac69739c96fa7-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/image-zoom-fa19933bfc5ac12f6e17f-min.en-US.js"},"squarespace-pinterest":{"css":"//assets.squarespace.com/universal/styles-compressed/pinterest-3d55c64c25996c7633fc2-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/pinterest-aadd564b6ff9f2d0330f4-min.en-US.js"},"squarespace-popup-overlay":{"css":"//assets.squarespace.com/universal/styles-compressed/popup-overlay-e4ea05bd2ae9c1568e432-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/popup-overlay-565b3e6a21516974d0bf5-min.en-US.js"},"squarespace-product-quick-view":{"css":"//assets.squarespace.com/universal/styles-compressed/product-quick-view-663fb8b8c08febe7303f1-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/product-quick-view-64b62d01eb9a96680eb07-min.en-US.js"},"squarespace-products-collection-item-v2":{"css":"//assets.squarespace.com/universal/styles-compressed/products-collection-item-v2-60e14b9bac69739c96fa7-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/products-collection-item-v2-0386f826066ff2395a868-min.en-US.js"},"squarespace-products-collection-list-v2":{"css":"//assets.squarespace.com/universal/styles-compressed/products-collection-list-v2-60e14b9bac69739c96fa7-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/products-collection-list-v2-1836a36b2936989782757-min.en-US.js"},"squarespace-search-page":{"css":"//assets.squarespace.com/universal/styles-compressed/search-page-568ad8f2a40e76c0175c8-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/search-page-27675d4235aada8fa58fb-min.en-US.js"},"squarespace-search-preview":{"js":"//assets.squarespace.com/universal/scripts-compressed/search-preview-2c40b16fab53cb18d7013-min.en-US.js"},"squarespace-share-buttons":{"js":"//assets.squarespace.com/universal/scripts-compressed/share-buttons-c4214afe6907e5aa1c4cc-min.en-US.js"},"squarespace-simple-liking":{"css":"//assets.squarespace.com/universal/styles-compressed/simple-liking-47606e375db2b296c3464-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/simple-liking-86a6810967083b1f49e97-min.en-US.js"},"squarespace-social-buttons":{"css":"//assets.squarespace.com/universal/styles-compressed/social-buttons-b186d09e02921fd7f8e00-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/social-buttons-1c2fd487bb73ea50d4e1d-min.en-US.js"},"squarespace-tourdates":{"css":"//assets.squarespace.com/universal/styles-compressed/tourdates-3d55c64c25996c7633fc2-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/tourdates-b2b83dd9cda7a8d5f5392-min.en-US.js"},"squarespace-website-overlays-manager":{"css":"//assets.squarespace.com/universal/styles-compressed/website-overlays-manager-5c2f030f6ee94f066dc3d-min.en-US.css","js":"//assets.squarespace.com/universal/scripts-compressed/website-overlays-manager-cddbaaee6605071ee5946-min.en-US.js"}},"pageType":2,"website":{"id":"5924044359cc68d66c1b6e68","identifier":"martin-jones-fx37","websiteType":1,"contentModifiedOn":1619168825630,"cloneable":false,"hasBeenCloneable":false,"siteStatus":{},"language":"en-US","timeZone":"America/New_York","machineTimeZoneOffset":-14400000,"timeZoneOffset":-14400000,"timeZoneAbbr":"EDT","siteTitle":"Python for Biologists","fullSiteTitle":"Biological data exploration book \u2014 Python for Biologists","siteDescription":"","logoImageId":"5947b712893fc00a03319d5b","shareButtonOptions":{"3":true,"1":true,"7":true,"6":true,"8":true,"2":true,"4":true},"logoImageUrl":"//images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1497872146465-P0BF1N793NGA8IOBWLQT/black_yellow.png","authenticUrl":"https://pythonforbiologists.com","internalUrl":"https://martin-jones-fx37.squarespace.com","baseUrl":"https://pythonforbiologists.com","primaryDomain":"pythonforbiologists.com","sslSetting":3,"isHstsEnabled":false,"socialAccounts":[{"serviceId":4,"userId":"1571090821","userName":"pythonforbiolog","screenname":"pythonforbiologists","addedOn":1497880568754,"profileUrl":"https://twitter.com/pythonforbiolog","iconUrl":"http://pbs.twimg.com/profile_images/378800000678485361/123c48f1cd3d7584834fb49e2c1276e9_normal.png","collectionId":"5947d7f8e4fcb54c21049ed1","iconEnabled":true,"serviceName":"twitter"},{"serviceId":4,"userId":"1571090821","userName":"pythonforbiolog","screenname":"pythonforbiologists","addedOn":1497880622505,"profileUrl":"https://twitter.com/pythonforbiolog","iconUrl":"http://pbs.twimg.com/profile_images/378800000678485361/123c48f1cd3d7584834fb49e2c1276e9_normal.png","collectionId":"5947d82e3a041105663f9a3c","iconEnabled":true,"serviceName":"twitter"}],"typekitId":"","statsMigrated":false,"imageMetadataProcessingEnabled":false,"screenshotId":"95fc4f7d","showOwnerLogin":false},"websiteSettings":{"id":"5924044359cc68d66c1b6e6a","websiteId":"5924044359cc68d66c1b6e68","subjects":[],"country":"GB","simpleLikingEnabled":true,"mobileInfoBarSettings":{"isContactEmailEnabled":false,"isContactPhoneNumberEnabled":false,"isLocationEnabled":false,"isBusinessHoursEnabled":false},"announcementBarSettings":{"style":1,"text":"<p class=\"\" style=\"white-space:pre-wrap;\">New workshop added: Introduction to Python for Biologists online course 13th-24th July 2020. Click here for details.</p>","clickthroughUrl":{"url":"https://pythonforbiologists.com/upcoming-workshops/introduction-to-python-for-biologists-online-course-13th-24th-july-2020","newWindow":false}},"commentLikesAllowed":true,"commentAnonAllowed":true,"commentThreaded":true,"commentApprovalRequired":false,"commentAvatarsOn":true,"commentSortType":2,"commentFlagThreshold":0,"commentFlagsAllowed":true,"commentEnableByDefault":true,"commentDisableAfterDaysDefault":0,"disqusShortname":"","commentsEnabled":false,"storeSettings":{"returnPolicy":null,"termsOfService":null,"privacyPolicy":null,"expressCheckout":true,"continueShoppingLinkUrl":"/","useLightCart":false,"showNoteField":false,"shippingCountryDefaultValue":"US","billToShippingDefaultValue":false,"showShippingPhoneNumber":true,"isShippingPhoneRequired":false,"showBillingPhoneNumber":true,"isBillingPhoneRequired":false,"currenciesSupported":["USD","ARS","AUD","BRL","CAD","CHF","COP","CZK","DKK","EUR","GBP","HKD","IDR","ILS","INR","JPY","MXN","MYR","NOK","NZD","PHP","PLN","RUB","SEK","SGD","THB","ZAR"],"defaultCurrency":"GBP","selectedCurrency":"GBP","measurementStandard":1,"showCustomCheckoutForm":false,"enableMailingListOptInByDefault":false,"sameAsRetailLocation":false,"merchandisingSettings":{"scarcityEnabledOnProductItems":false,"scarcityEnabledOnProductBlocks":false,"scarcityMessageType":"DEFAULT_SCARCITY_MESSAGE","scarcityThreshold":10,"multipleQuantityAllowedForServices":true,"restockNotificationsEnabled":false,"restockNotificationsMailingListSignUpEnabled":false,"relatedProductsEnabled":false,"relatedProductsOrdering":"random","soldOutVariantsDropdownDisabled":false,"productComposerOptedIn":false,"productComposerABTestOptedOut":false,"productReviewsEnabled":false},"isLive":true,"multipleQuantityAllowedForServices":true},"useEscapeKeyToLogin":true,"ssBadgeType":1,"ssBadgePosition":4,"ssBadgeVisibility":1,"ssBadgeDevices":1,"pinterestOverlayOptions":{"mode":"disabled"},"ampEnabled":false},"cookieSettings":{"isCookieBannerEnabled":false,"isRestrictiveCookiePolicyEnabled":false,"isRestrictiveCookiePolicyAbsolute":false,"cookieBannerText":"","cookieBannerTheme":"","cookieBannerVariant":"","cookieBannerPosition":"","cookieBannerCtaVariant":"","cookieBannerCtaText":"","cookieBannerAcceptType":"OPT_IN","cookieBannerOptOutCtaText":""},"websiteCloneable":false,"collection":{"title":"Biological data exploration book","id":"5eda1379c1cc1c3e426a3753","fullUrl":"/biological-data-exploration-book","type":10,"permissionType":1},"subscribed":false,"appDomain":"squarespace.com","templateTweakable":true,"tweakJSON":{"aspect-ratio":"Auto","banner-slideshow-controls":"Arrows","gallery-arrow-style":"No Background","gallery-aspect-ratio":"3:2 Standard","gallery-auto-crop":"true","gallery-autoplay":"false","gallery-design":"Grid","gallery-info-overlay":"Show on Hover","gallery-loop":"false","gallery-navigation":"Bullets","gallery-show-arrows":"true","gallery-transitions":"Fade","galleryArrowBackground":"rgba(34,34,34,1)","galleryArrowColor":"rgba(255,255,255,1)","galleryAutoplaySpeed":"3","galleryCircleColor":"rgba(255,255,255,1)","galleryInfoBackground":"rgba(0, 0, 0, .7)","galleryThumbnailSize":"100px","gridSize":"280px","gridSpacing":"10px","logoContainerWidth":"140px","product-gallery-auto-crop":"true","product-image-auto-crop":"true","siteTitleContainerWidth":"220px","tweak-v1-related-products-title-spacing":"50px"},"templateId":"52a74dafe4b073a80cd253c5","templateVersion":"7","pageFeatures":[1,2,4],"gmRenderKey":"QUl6YVN5Q0JUUk9xNkx1dkZfSUUxcjQ2LVQ0QWVUU1YtMGQ3bXk4","templateScriptsRootUrl":"https://static1.squarespace.com/static/ta/52a74d9ae4b0253945d2aee9/1039/scripts/","betaFeatureFlags":["commerce_category_id_discounts_enabled","uas_swagger_token_client","uas_swagger_unauthenticated_session_client","campaigns_blog_product_image_editor","seven_one_frontend_render_header_release","commerce_pdp_layout_catalog","commerce_product_branching","uas_swagger_site_user_account_client","uas_swagger_session_client","commerce_local_pickup","campaigns_section_reorder_arrows","member_areas_schedule_interview","commerce_activation_experiment_add_payment_processor_card","commerce_afterpay_pdp","startup_checklist","campaigns_new_subscriber_search","domains_universal_search","commerce_etsy_product_import","reduce_general_search_api_traffic","commerce_product_composer_ab_test_all_users","commerce_restock_notifications","customer_account_creation_recaptcha","nested_categories_migration_enabled","category-delete-product-service-enabled","commerce_shadow_write_to_cart_persistence_service","commerce_instagram_product_checkout_links","commerce_pdp_survey_modal","domains_use_new_domain_connect_strategy","product_composer_feedback_form_on_save","campaigns_show_apply_website_styles_button","member_areas_annual_subscriptions","commerce_onboarding_tools_screen_test","domains_transfer_flow_hide_preface","campaigns_hide_deleted_automations_panel","domains_transfer_flow_improvements","member_areas_billing_state_migration"],"impersonatedSession":false,"tzData":{"zones":[[-300,"US","E%sT",null]],"rules":{"US":[[1967,2006,null,"Oct","lastSun","2:00","0","S"],[1987,2006,null,"Apr","Sun>=1","2:00","1:00","D"],[2007,"max",null,"Mar","Sun>=8","2:00","1:00","D"],[2007,"max",null,"Nov","Sun>=1","2:00","0","S"]]}},"showAnnouncementBar":false};</script><script type="text/javascript"> SquarespaceFonts.loadViaContext(); Squarespace.load(window);</script><script type="application/ld+json">{"url":"https://pythonforbiologists.com","name":"Python for Biologists","description":"","image":"//images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1497872146465-P0BF1N793NGA8IOBWLQT/black_yellow.png","@context":"http://schema.org","@type":"WebSite"}</script><link rel="stylesheet" type="text/css" href="./Biological data exploration book — Python for Biologists_files/site.css"><link rel="stylesheet" href="./Biological data exploration book — Python for Biologists_files/solarized_light.min.css">
+<script src="./Biological data exploration book — Python for Biologists_files/highlight.min.js.download"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script type="text/javascript" src="./Biological data exploration book — Python for Biologists_files/3238.js.download" async="async"></script><style>
+  p {font-size: 28px;}  
+  #content {width: 70%;}
+  .image-subtitle {font-size: 28px;}
+</style>
+
+<script type="text/javascript" src="./Biological data exploration book — Python for Biologists_files/gumroad.js.download"></script><script src="./Biological data exploration book — Python for Biologists_files/gumroad-overlay-18bd09f18c936370b8b7013789b44c5bd49136108151f5d4d9783afdc3b0e259.js.download"></script><script>Static.COOKIE_BANNER_CAPABLE = true;</script>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-2758363-33', 'auto');ga('send', 'pageview');</script><!-- End of Squarespace Headers -->
+    <script>/* Must be below squarespace-headers */(function(){var e='ontouchstart'in window||navigator.msMaxTouchPoints;var t=document.documentElement;if(!e&&t){t.className=t.className.replace(/touch-styles/,'')}})()
+    </script>
+  <script src="./Biological data exploration book — Python for Biologists_files/gumroad-overlay-18bd09f18c936370b8b7013789b44c5bd49136108151f5d4d9783afdc3b0e259.js.download"></script><script src="./Biological data exploration book — Python for Biologists_files/gumroad-overlay-18bd09f18c936370b8b7013789b44c5bd49136108151f5d4d9783afdc3b0e259.js.download"></script><script src="./Biological data exploration book — Python for Biologists_files/gumroad-overlay-18bd09f18c936370b8b7013789b44c5bd49136108151f5d4d9783afdc3b0e259.js.download"></script><style type="text/css">.disable-hover:not(.sqs-layout-editing), .disable-hover:not(.sqs-layout-editing) * { pointer-events: none  ; }</style><style type="text/css">a.gumroad-button { background-color: white !important; background-image: url("https://app.gumroad.com/button/button_bar.jpg") !important; background-repeat: repeat-x !important; border-radius: 4px !important; box-shadow: rgba(0, 0, 0, 0.4) 0 0 2px !important; color: #999 !important; display: inline-block !important; font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif !important; font-size: 16px !important; font-style: normal !important; font-weight: 500 !important; line-height: 50px !important; padding: 0 15px !important; text-shadow: none !important; text-decoration: none !important; } .gumroad-button-logo { background-image: url("https://app.gumroad.com/button/button_logo.png") !important; background-size: cover !important; height: 17px !important; width: 16px !important; display: inline-block !important; margin-bottom: -3px !important; margin-right: 15px !important; } .gumroad-loading-indicator { background: white; border-radius: 50%; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); box-sizing: border-box; display: none; height: 60px; left: 50% !important; margin-left: -30px !important; margin-top: -30px !important; padding: 10px; position: fixed; top: 50% !important; width: 60px; z-index: 99997; } .gumroad-loading-indicator i { background: url("https://app.gumroad.com/js/loading-rainbow.svg"); height: 40px; width: 40px; display: inline-block; background-size: contain; animation: gumroad-spin 1.5s infinite linear; } .gumroad-scroll-container { -webkit-overflow-scrolling: touch; overflow-y: auto; position: fixed !important; z-index: 99998 !important; top: 0 !important; right: 0 !important; -ms-overflow-style: none; scrollbar-width: none; text-align: start; } .gumroad-scroll-container::-webkit-scrollbar { display: none; } .gumroad-overflow-hidden { overflow: hidden !important; } .gumroad-overlay-iframe { position: absolute; min-width: 100%; min-height: 100%; border: none !important; } @keyframes gumroad-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(359deg); } } </style></head>
+  <body id="collection-5eda1379c1cc1c3e426a3753" class="transparent-header enable-nav-button nav-button-style-outline nav-button-corner-style-pill banner-button-style-solid banner-button-corner-style-pill banner-slideshow-controls-arrows meta-priority-date hide-entry-author hide-list-entry-footer hide-blog-sidebar center-navigation--info event-show-past-events event-thumbnails event-thumbnail-size-32-standard event-date-label event-list-show-cats event-list-date event-list-time event-list-address event-icalgcal-links event-excerpts gallery-design-grid aspect-ratio-auto lightbox-style-light gallery-navigation-bullets gallery-info-overlay-show-on-hover gallery-aspect-ratio-32-standard gallery-arrow-style-no-background gallery-transitions-fade gallery-show-arrows gallery-auto-crop product-list-titles-under product-list-alignment-center product-item-size-11-square product-image-auto-crop product-gallery-size-11-square product-gallery-auto-crop show-product-price show-product-item-nav product-social-sharing tweak-v1-related-products-image-aspect-ratio-11-square tweak-v1-related-products-details-alignment-center newsletter-style-light hide-opentable-icons opentable-style-dark small-button-style-solid small-button-shape-square medium-button-style-solid medium-button-shape-square large-button-style-outline large-button-shape-pill image-block-poster-text-alignment-center image-block-card-dynamic-font-sizing image-block-card-content-position-center image-block-card-text-alignment-left image-block-overlap-dynamic-font-sizing image-block-overlap-content-position-center image-block-overlap-text-alignment-left image-block-collage-dynamic-font-sizing image-block-collage-content-position-top image-block-collage-text-alignment-left image-block-stack-dynamic-font-sizing image-block-stack-text-alignment-left button-style-solid button-corner-style-square tweak-product-quick-view-button-style-floating tweak-product-quick-view-button-position-bottom tweak-product-quick-view-lightbox-excerpt-display-truncate tweak-product-quick-view-lightbox-show-arrows tweak-product-quick-view-lightbox-show-close-button tweak-product-quick-view-lightbox-controls-weight-light native-currency-code-gbp collection-5eda1379c1cc1c3e426a3753 collection-type-page collection-layout-default mobile-style-available force-mobile-nav">
+    <a href="https://pythonforbiologists.com/biological-data-exploration-book#" class="body-overlay"></a>
+    <div class="sqs-announcement-bar-dropzone"></div>
+    <div id="sidecarNav">
+      
+
+  <div id="mobileNavWrapper" class="nav-wrapper" data-content-field="navigation-mobileNav">
+    <nav id="mobileNavigation">
+      
+
+      
+        
+          
+
+          
+          <div class="folder">
+            <div class="folder-toggle" data-href="/training-courses">Training courses</div>
+            <div class="subnav">
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/introduction-to-python-for-biologists">
+                  Introduction to Python for Biologists
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/advanced-python-for-biologists">
+                  Advanced Python for Biologists
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/data-manipulation-and-visualisation-with-python">
+                  Data manipulation and visualisation with Python
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/linux-and-workflows-for-biologists">
+                  Linux and workflows for biologists
+                </a>
+              </div>
+              
+              
+            
+            </div>
+          </div>
+          
+        
+        
+
+      
+        
+          
+
+          
+
+            
+            <div class="collection active">
+              <a href="https://pythonforbiologists.com/biological-data-exploration-book">
+                Biological data exploration book
+              </a>
+            </div>
+            
+
+          
+        
+        
+
+      
+        
+          
+
+          
+
+            
+            <div class="collection">
+              <a href="https://pythonforbiologists.com/python-for-biologists-online-course">
+                online course
+              </a>
+            </div>
+            
+
+          
+        
+        
+
+      
+        
+          
+
+          
+          <div class="folder">
+            <div class="folder-toggle" data-href="/programming-articles">Programming articles</div>
+            <div class="subnav">
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/sequence-similarity-search">
+                  Sequence similarity search
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/python-for-complete-beginners">
+                  Python for complete beginners
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/five-things-i-hate-about-python">
+                  Five things I hate about teaching Python
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/tools-for-tabular-data">
+                  Tools for tabular data
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/randomly-sampling-reads-from-a-fastq-file">
+                  Randomly sampling reads from a FASTQ file
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/3-steps-to-readable-code">
+                  3 steps to readable code
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/what-you-have-in-common-with-the-wright-brothers">
+                  What you have in common with the Wright brothers
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/a-terrible-genome-assembler-in-six-lines">
+                  A terrible genome assembler in six lines
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/new-business-cards">
+                  New business cards
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/the-role-of-instructors-in-teaching-programming">
+                  The role of instructors in teaching programming
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/counting-bases-in-a-sequence">
+                  Counting bases in a sequence
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/sorting-dna-sequences-by-length">
+                  Sorting DNA sequences by length
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/29-common-beginner-errors-on-one-page">
+                  29 common beginner errors on one page
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/when-to-use-aggregatefiltertransform-in-pandas">
+                  When to use aggregate/filter/transform in Pandas
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/inventing-animals-neural-network-python">
+                  Inventing new animals with Python
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/exercise-files">
+                  Exercise files
+                </a>
+              </div>
+              
+              
+            
+            </div>
+          </div>
+          
+        
+        
+
+      
+        
+          
+
+          
+          <div class="folder">
+            <div class="folder-toggle" data-href="/python-tutorial">Python tutorial</div>
+            <div class="subnav">
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/introduction">
+                  Introduction
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/printing-and-manipulating-text">
+                  Printing and manipulating text
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/working-with-files">
+                  Working with files
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/lists-and-loops">
+                  Lists and loops
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/writing-our-own-functions">
+                  Writing our own functions
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/conditional-tests">
+                  Conditional tests
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/regular-expressions">
+                  Regular expressions
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/dictionaries">
+                  Dictionaries
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/files-programs-and-user-input">
+                  Files, programs, and user input
+                </a>
+              </div>
+              
+              
+            
+            </div>
+          </div>
+          
+        
+        
+
+      
+        
+          
+
+          
+
+            
+            <div class="collection">
+              <a href="https://pythonforbiologists.com/aboutcontact">
+                About/Contact
+              </a>
+            </div>
+            
+
+          
+        
+        
+
+      
+        
+          
+
+          
+
+            
+            <div class="collection">
+              <a href="https://pythonforbiologists.com/newsletter">
+                Newsletter
+              </a>
+            </div>
+            
+
+          
+        
+        
+
+      
+    </nav>
+  </div>
+
+
+
+    </div>
+    <div id="siteWrapper" class="clearfix">
+
+      <div class="sqs-cart-dropzone" style="top: 113px;"></div>
+
+      <header id="header" class="show-on-scroll" data-offset-el=".index-section" data-offset-behavior="bottom" role="banner">
+        <div class="header-inner">
+          <div id="logoWrapper" class="wrapper" data-content-field="site-title">
+            
+              <h1 id="logoImage"><a href="https://pythonforbiologists.com/"><img src="./Biological data exploration book — Python for Biologists_files/black_yellow.png" alt="Python for Biologists"></a></h1>
+            
+          </div><!--
+          --><div class="mobile-nav-toggle"><div class="top-bar"></div><div class="middle-bar"></div><div class="bottom-bar"></div></div><div class="mobile-nav-toggle fixed-nav-toggle"><div class="top-bar"></div><div class="middle-bar"></div><div class="bottom-bar"></div></div><!--
+          --><div id="headerNav">
+
+  <div id="mainNavWrapper" class="nav-wrapper" data-content-field="navigation-mainNav">
+    <nav id="mainNavigation" data-content-field="navigation-mainNav">
+      
+
+      
+        
+          
+
+          
+          <div class="folder">
+            <div class="folder-toggle" data-href="/training-courses">Training courses</div>
+            <div class="subnav">
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/introduction-to-python-for-biologists">
+                  Introduction to Python for Biologists
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/advanced-python-for-biologists">
+                  Advanced Python for Biologists
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/data-manipulation-and-visualisation-with-python">
+                  Data manipulation and visualisation with Python
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/linux-and-workflows-for-biologists">
+                  Linux and workflows for biologists
+                </a>
+              </div>
+              
+              
+            
+            </div>
+          </div>
+          
+        
+        
+
+      
+        
+          
+
+          
+
+            
+            <div class="collection active">
+              <a href="https://pythonforbiologists.com/biological-data-exploration-book">
+                Biological data exploration book
+              </a>
+            </div>
+            
+
+          
+        
+        
+
+      
+        
+          
+
+          
+
+            
+            <div class="collection">
+              <a href="https://pythonforbiologists.com/python-for-biologists-online-course">
+                online course
+              </a>
+            </div>
+            
+
+          
+        
+        
+
+      
+        
+          
+
+          
+          <div class="folder">
+            <div class="folder-toggle" data-href="/programming-articles">Programming articles</div>
+            <div class="subnav">
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/sequence-similarity-search">
+                  Sequence similarity search
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/python-for-complete-beginners">
+                  Python for complete beginners
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/five-things-i-hate-about-python">
+                  Five things I hate about teaching Python
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/tools-for-tabular-data">
+                  Tools for tabular data
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/randomly-sampling-reads-from-a-fastq-file">
+                  Randomly sampling reads from a FASTQ file
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/3-steps-to-readable-code">
+                  3 steps to readable code
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/what-you-have-in-common-with-the-wright-brothers">
+                  What you have in common with the Wright brothers
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/a-terrible-genome-assembler-in-six-lines">
+                  A terrible genome assembler in six lines
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/new-business-cards">
+                  New business cards
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/the-role-of-instructors-in-teaching-programming">
+                  The role of instructors in teaching programming
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/counting-bases-in-a-sequence">
+                  Counting bases in a sequence
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/sorting-dna-sequences-by-length">
+                  Sorting DNA sequences by length
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/29-common-beginner-errors-on-one-page">
+                  29 common beginner errors on one page
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/when-to-use-aggregatefiltertransform-in-pandas">
+                  When to use aggregate/filter/transform in Pandas
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/inventing-animals-neural-network-python">
+                  Inventing new animals with Python
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/exercise-files">
+                  Exercise files
+                </a>
+              </div>
+              
+              
+            
+            </div>
+          </div>
+          
+        
+        
+
+      
+        
+          
+
+          
+          <div class="folder">
+            <div class="folder-toggle" data-href="/python-tutorial">Python tutorial</div>
+            <div class="subnav">
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/introduction">
+                  Introduction
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/printing-and-manipulating-text">
+                  Printing and manipulating text
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/working-with-files">
+                  Working with files
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/lists-and-loops">
+                  Lists and loops
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/writing-our-own-functions">
+                  Writing our own functions
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/conditional-tests">
+                  Conditional tests
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/regular-expressions">
+                  Regular expressions
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/dictionaries">
+                  Dictionaries
+                </a>
+              </div>
+              
+              
+            
+
+              
+              <div class="collection">
+                <a href="https://pythonforbiologists.com/files-programs-and-user-input">
+                  Files, programs, and user input
+                </a>
+              </div>
+              
+              
+            
+            </div>
+          </div>
+          
+        
+        
+
+      
+        
+          
+
+          
+
+            
+            <div class="collection">
+              <a href="https://pythonforbiologists.com/aboutcontact">
+                About/Contact
+              </a>
+            </div>
+            
+
+          
+        
+        
+
+      
+        
+          
+
+          
+
+            
+            <div class="collection">
+              <a href="https://pythonforbiologists.com/newsletter">
+                Newsletter
+              </a>
+            </div>
+            
+
+          
+        
+        
+
+      
+    </nav>
+  </div>
+  <!-- style below blocks out the mobile nav toggle only when nav is loaded -->
+  <style>.mobile-nav-toggle-label { display: inline-block !important; }</style>
+
+
+</div>
+        </div>
+      </header>
+
+      
+        
+          
+            
+              
+                <div id="promotedGalleryWrapper" class="sqs-layout promoted-gallery-wrapper"><div class="row"><div class="col"></div></div></div>
+                
+                  
+                
+              
+            
+          
+        
+      
+
+
+      
+      
+      
+
+      <main id="page" role="main">
+        
+        <!--
+        --><!--
+        --><!--
+        --><div id="content" class="main-content" data-content-field="main-content" data-collection-id="5eda1379c1cc1c3e426a3753" data-edit-main-image="">
+         <div class="sqs-layout sqs-grid-12 columns-12" data-type="page" data-updated-on="1594372067488" id="page-5eda1379c1cc1c3e426a3753"><div class="row sqs-row" id="yui_3_17_2_1_1630751069829_138"><div class="col sqs-col-12 span-12" id="yui_3_17_2_1_1630751069829_137"><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-yui_3_17_2_1_1594197849937_6497"><div class="sqs-block-content" id="yui_3_17_2_1_1630751069829_136">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+      <figure class="sqs-block-image-figure image-block-outer-wrapper image-block-v2 design-layout-card combination-animation-none individual-animation-none individual-text-animation-none image-position-left sqs-text-ready" data-scrolled="" data-test="image-block-v2-outer-wrapper" id="yui_3_17_2_1_1630751069829_135">
+
+        <div class="intrinsic" id="yui_3_17_2_1_1630751069829_134">
+          
+            <div style="
+                
+                
+
+                
+              " class="
+                
+                image-inset
+                
+                  content-fit
+                
+              " data-animation-role="image" data-description="" id="yui_3_17_2_1_1630751069829_133">
+            
+              <div style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+" id="yui_3_17_2_1_1630751069829_132">
+            
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594284376049-0V4VWST33IT6CECW8MUF/smartmockups_kcafd4fa.png" alt="Time to get to grips with your data - With Python, pandas and seaborn in your toolbox, you too can develop data exploration superpowers." loading="lazy"/></noscript>
+              <img data-src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594284376049-0V4VWST33IT6CECW8MUF/smartmockups_kcafd4fa.png" data-image="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594284376049-0V4VWST33IT6CECW8MUF/smartmockups_kcafd4fa.png" data-image-dimensions="716x1072" data-image-focal-point="0.5,0.5" loading="lazy" alt="smartmockups_kcafd4fa.png" class="loaded" data-image-resolution="500w" src="./Biological data exploration book — Python for Biologists_files/smartmockups_kcafd4fa.png" style="">
+              <div class="image-overlay" style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+"></div>
+            
+              </div>
+            
+          
+            </div>
+          
+
+        </div>
+
+        
+          
+          <figcaption class="image-card-wrapper" data-width-ratio="">
+            <div class="image-card sqs-dynamic-text-container">
+
+              
+                <div class="image-title-wrapper"><div class="image-title sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">Time to get to grips with your data</p></div></div>
+              
+
+              
+                <div class="image-subtitle-wrapper"><div class="image-subtitle sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">With Python, pandas and seaborn in your toolbox, you too can develop data exploration superpowers.</p></div></div>
+              
+
+              
+
+            </div>
+          </figcaption>
+        
+
+      </figure>
+
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-5eda1379c1cc1c3e426a3754"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">In biological research, we're currently in a <strong>golden age of data</strong>. It's never been easier to assemble large datasets to probe biological questions. </p><p class="" style="white-space:pre-wrap;">But these large datasets come with their own problems:</p><ul data-rte-list="default"><li><p class="" style="white-space:pre-wrap;">How to clean and validate data? </p></li><li><p class="" style="white-space:pre-wrap;">How to combine datasets from multiple sources? </p></li><li><p class="" style="white-space:pre-wrap;">And how to look for patterns in large, complex datasets and display your findings?<br></p></li></ul><p class="" style="white-space:pre-wrap;"><strong>These are the questions that come up again and again, from multiple researchers, in every course I run.</strong><br><br>The solution to these problems comes in the form of Python's scientific software stack. The combination of a friendly, expressive language and high quality packages makes a fantastic set of tools for data exploration. </p><p class="" style="white-space:pre-wrap;">But the packages themselves can be <strong>hard to get to grips with</strong>. It's difficult to know where to get started, or which sets of tools will be most useful. <br><br>You may have already encountered this. If you look at the matplotlib website, it's clear that it's a powerful charting tool - but looking at the tutorial can be daunting. The same goes for pandas: it can carry out almost any type of data manipulation, but that same power makes it hard to get to grips with.<br></p></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1591353818505_29535"><div class="sqs-block-content"><hr></div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285050006_5021"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">Happily,<strong> learning to use Python effectively for data exploration is a superpower that you can learn</strong>. With a basic knowledge of Python, pandas (for data manipulation) and seaborn (for data visualization) you'll be able to understand complex datasets quickly and mine them for biological insight. <br><br>You'll be able to make <strong>beautiful, informative charts</strong> for posters, papers and presentations, and rapidly update them to reflect new data or test new hypotheses. <br><br>And you'll be able to quickly make sense of datasets from other projects and publications - millions of rows of data will no longer be a scary prospect!<br><br>In this book, I have drawn on years of teaching experience to give you the tools you need to answer your research questions. Starting with the basics, you'll learn how to use Python, pandas, seaborn and matplotlib effectively using biological examples throughout. </p></div></div><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-yui_3_17_2_1_1594285050006_6217"><div class="sqs-block-content" id="yui_3_17_2_1_1630751069829_157">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+      <figure class="sqs-block-image-figure image-block-outer-wrapper image-block-v2 design-layout-card combination-animation-none individual-animation-none individual-text-animation-none image-position-right sqs-text-ready" data-scrolled="" data-test="image-block-v2-outer-wrapper" id="yui_3_17_2_1_1630751069829_156">
+
+        <div class="intrinsic" id="yui_3_17_2_1_1630751069829_155">
+          
+            <div style="
+                
+                
+
+                
+              " class="
+                
+                image-inset
+                
+                  content-fit
+                
+              " data-animation-role="image" data-description="" id="yui_3_17_2_1_1630751069829_154">
+            
+              <div style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+" id="yui_3_17_2_1_1630751069829_153">
+            
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594286182261-VVP66FT77VSG59JQQ0IE/smartmockups_kcekt4tu.png" alt="Just the best bits - of the best data exploration packages" loading="lazy"/></noscript>
+              <img data-src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594286182261-VVP66FT77VSG59JQQ0IE/smartmockups_kcekt4tu.png" data-image="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594286182261-VVP66FT77VSG59JQQ0IE/smartmockups_kcekt4tu.png" data-image-dimensions="1161x857" data-image-focal-point="0.5,0.5" loading="lazy" alt="smartmockups_kcekt4tu.png" class="loaded" data-image-resolution="500w" src="./Biological data exploration book — Python for Biologists_files/smartmockups_kcekt4tu.png" style="">
+              <div class="image-overlay" style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+"></div>
+            
+              </div>
+            
+          
+            </div>
+          
+
+        </div>
+
+        
+          
+          <figcaption class="image-card-wrapper" data-width-ratio="">
+            <div class="image-card sqs-dynamic-text-container">
+
+              
+                <div class="image-title-wrapper"><div class="image-title sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">Just the best bits</p></div></div>
+              
+
+              
+                <div class="image-subtitle-wrapper"><div class="image-subtitle sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">of the best data exploration packages</p></div></div>
+              
+
+              
+
+            </div>
+          </figcaption>
+        
+
+      </figure>
+
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285050006_7839"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">Rather than overwhelm you with information, the book concentrates on the tools most useful for biological data. Full color illustrations show hundreds of examples covering dozens of different chart types, with complete code samples that you can tweak and use for your own work. <br><br><strong>The book is designed to help you get over the most common obstacles that we encounter with biological data.</strong><br><br>You'll learn what to do if:</p><ul data-rte-list="default"><li><p class="" style="white-space:pre-wrap;">your input files have errors, or missing data.</p></li><li><p class="" style="white-space:pre-wrap;">your input files are too big to fit in memory</p></li><li><p class="" style="white-space:pre-wrap;">you need to combine data from multiple sources</p></li><li><p class="" style="white-space:pre-wrap;">you have to visualize datasets with thousands of rows or millions of columns</p></li><li><p class="" style="white-space:pre-wrap;">you need to make complex filters for your data</p></li><li><p class="" style="white-space:pre-wrap;">your data are in the wrong format for the analysis you want to do</p></li></ul><p class="" style="white-space:pre-wrap;"><br>Once you understand the basics of pandas, seaborn and matplotlib, the chapters on visualization will show you how to make sophisticated charts with minimal code and how to best use color to make clear charts. </p></div></div><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-yui_3_17_2_1_1594285991740_11119"><div class="sqs-block-content" id="yui_3_17_2_1_1630751069829_175">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+      <figure class="sqs-block-image-figure image-block-outer-wrapper image-block-v2 design-layout-card combination-animation-none individual-animation-none individual-text-animation-none image-position-left sqs-text-ready" data-scrolled="" data-test="image-block-v2-outer-wrapper" id="yui_3_17_2_1_1630751069829_174">
+
+        <div class="intrinsic" id="yui_3_17_2_1_1630751069829_173">
+          
+            <div style="
+                
+                
+
+                
+              " class="
+                
+                image-inset
+                
+                  content-fit
+                
+              " data-animation-role="image" data-description="" id="yui_3_17_2_1_1630751069829_172">
+            
+              <div style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+" id="yui_3_17_2_1_1630751069829_171">
+            
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594286883957-8L4G5BOJY1MQE5YCHGEZ/smartmockups_kcel8npu.png" alt="All the chart types you’ll need - " loading="lazy"/></noscript>
+              <img data-src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594286883957-8L4G5BOJY1MQE5YCHGEZ/smartmockups_kcel8npu.png" data-image="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594286883957-8L4G5BOJY1MQE5YCHGEZ/smartmockups_kcel8npu.png" data-image-dimensions="1724x842" data-image-focal-point="0.5,0.5" loading="lazy" alt="smartmockups_kcel8npu.png" class="loaded" data-image-resolution="500w" src="./Biological data exploration book — Python for Biologists_files/smartmockups_kcel8npu.png" style="">
+              <div class="image-overlay" style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+"></div>
+            
+              </div>
+            
+          
+            </div>
+          
+
+        </div>
+
+        
+          
+          <figcaption class="image-card-wrapper" data-width-ratio="">
+            <div class="image-card sqs-dynamic-text-container">
+
+              
+                <div class="image-title-wrapper"><div class="image-title sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">All the chart types you’ll need</p></div></div>
+              
+
+              
+
+              
+
+            </div>
+          </figcaption>
+        
+
+      </figure>
+
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285991740_12592"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">The book covers the most basic charts that we use every day - histograms, scatter plots and boxplots - and more exotic charts like clustermaps and violin plots - all with full working code and biological examples. </p></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1594285991740_13057"><div class="sqs-block-content"><hr></div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285991740_13396"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">For getting started with data exploration in Python, the step-by-step approach offered by the book beats everything else. But the real power of Python's data processing stack becomes apparent when you combine the individual tools in a single project.<br><br><strong>That's where the videos come in.</strong><br><br>In each of the four detailed videos, we'll take a single biological dataset and walk through all the steps involved in analyzing it, starting with publicly available data files and ending with our final figures. The videos give us a chance to explore different <strong>types of data</strong>, demonstrate <strong>tips and techniques</strong> that don't fit in the book, and use visualization to answer <strong>interesting biological questions</strong>. </p></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1594285991740_29990"><div class="sqs-block-content"><hr></div></div><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-yui_3_17_2_1_1594285991740_21141"><div class="sqs-block-content" id="yui_3_17_2_1_1630751069829_193">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+      <figure class="sqs-block-image-figure image-block-outer-wrapper image-block-v2 design-layout-card combination-animation-none individual-animation-none individual-text-animation-none image-position-left sqs-text-ready" data-scrolled="" data-test="image-block-v2-outer-wrapper" id="yui_3_17_2_1_1630751069829_192">
+
+        <div class="intrinsic" id="yui_3_17_2_1_1630751069829_191">
+          
+            <div style="
+                
+                
+
+                
+              " class="
+                
+                image-inset
+                
+                  content-fit
+                
+              " data-animation-role="image" data-description="" id="yui_3_17_2_1_1630751069829_190">
+            
+              <div style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+" id="yui_3_17_2_1_1630751069829_189">
+            
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594287420368-34QLFN72P2IQ0ZBXHKG1/smartmockups_kceljd8a.png" alt="Video 1: VCF files - Video one discusses reading a large variant call format (VCF) file taken from the 1000 genomes project" loading="lazy"/></noscript>
+              <img data-src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594287420368-34QLFN72P2IQ0ZBXHKG1/smartmockups_kceljd8a.png" data-image="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594287420368-34QLFN72P2IQ0ZBXHKG1/smartmockups_kceljd8a.png" data-image-dimensions="1591x834" data-image-focal-point="0.5,0.5" loading="lazy" alt="smartmockups_kceljd8a.png" class="loaded" data-image-resolution="500w" src="./Biological data exploration book — Python for Biologists_files/smartmockups_kceljd8a.png" style="">
+              <div class="image-overlay" style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+"></div>
+            
+              </div>
+            
+          
+            </div>
+          
+
+        </div>
+
+        
+          
+          <figcaption class="image-card-wrapper" data-width-ratio="">
+            <div class="image-card sqs-dynamic-text-container">
+
+              
+                <div class="image-title-wrapper"><div class="image-title sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">Video 1: VCF files</p></div></div>
+              
+
+              
+                <div class="image-subtitle-wrapper"><div class="image-subtitle sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">Video one discusses reading a large variant call format (VCF) file taken from the 1000 genomes project</p></div></div>
+              
+
+              
+
+            </div>
+          </figcaption>
+        
+
+      </figure>
+
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285991740_30989"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">In it you'll learn:</p><ul data-rte-list="default"><li><p class="" style="white-space:pre-wrap;">how to benchmark and optimize time/memory usage for large files</p></li></ul><ul data-rte-list="default"><li><p class="" style="white-space:pre-wrap;">how to chunk input to deal with files too big to fit in memory</p></li><li><p class="" style="white-space:pre-wrap;">how to filter genotypes</p></li><li><p class="" style="white-space:pre-wrap;">how to merge sample and genotype data</p></li><li><p class="" style="white-space:pre-wrap;">approaches to plotting genotype frequencies</p></li></ul></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1594285991740_33855"><div class="sqs-block-content"><hr></div></div><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-yui_3_17_2_1_1594285991740_34643"><div class="sqs-block-content" id="yui_3_17_2_1_1630751069829_211">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+      <figure class="sqs-block-image-figure image-block-outer-wrapper image-block-v2 design-layout-card combination-animation-none individual-animation-none individual-text-animation-none image-position-left sqs-text-ready" data-scrolled="" data-test="image-block-v2-outer-wrapper" id="yui_3_17_2_1_1630751069829_210">
+
+        <div class="intrinsic" id="yui_3_17_2_1_1630751069829_209">
+          
+            <div style="
+                
+                
+
+                
+              " class="
+                
+                image-inset
+                
+                  content-fit
+                
+              " data-animation-role="image" data-description="" id="yui_3_17_2_1_1630751069829_208">
+            
+              <div style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+" id="yui_3_17_2_1_1630751069829_207">
+            
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594287757931-HYWNEDJZ9LPQGY6G3P2I/smartmockups_kcelrg8z.png" alt="Video 2: RNASeq expression data - In video two, we look at an example of RNASeq gene expression data taken from the Gene Expression Omnibus (GEO)" loading="lazy"/></noscript>
+              <img data-src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594287757931-HYWNEDJZ9LPQGY6G3P2I/smartmockups_kcelrg8z.png" data-image="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594287757931-HYWNEDJZ9LPQGY6G3P2I/smartmockups_kcelrg8z.png" data-image-dimensions="1591x834" data-image-focal-point="0.5,0.5" loading="lazy" alt="smartmockups_kcelrg8z.png" class="loaded" data-image-resolution="500w" src="./Biological data exploration book — Python for Biologists_files/smartmockups_kcelrg8z.png" style="">
+              <div class="image-overlay" style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+"></div>
+            
+              </div>
+            
+          
+            </div>
+          
+
+        </div>
+
+        
+          
+          <figcaption class="image-card-wrapper" data-width-ratio="">
+            <div class="image-card sqs-dynamic-text-container">
+
+              
+                <div class="image-title-wrapper"><div class="image-title sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">Video 2: RNASeq expression data</p></div></div>
+              
+
+              
+                <div class="image-subtitle-wrapper"><div class="image-subtitle sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">In video two, we look at an example of RNASeq gene expression data taken from the Gene Expression Omnibus (GEO)</p></div></div>
+              
+
+              
+
+            </div>
+          </figcaption>
+        
+
+      </figure>
+
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285991740_36077"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">In it we cover:</p><ul data-rte-list="default"><li><p class="" style="white-space:pre-wrap;">how to transpose awkward data files</p></li><li><p class="" style="white-space:pre-wrap;">how to use visualization for quality control on read count data</p></li><li><p class="" style="white-space:pre-wrap;">how to cluster sample replicates</p></li><li><p class="" style="white-space:pre-wrap;">making volcano plots and MD plots</p></li></ul></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1594285991740_36960"><div class="sqs-block-content"><hr></div></div><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-yui_3_17_2_1_1594285991740_49234"><div class="sqs-block-content" id="yui_3_17_2_1_1630751069829_229">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+      <figure class="sqs-block-image-figure image-block-outer-wrapper image-block-v2 design-layout-card combination-animation-none individual-animation-none individual-text-animation-none image-position-left sqs-text-ready" data-scrolled="" data-test="image-block-v2-outer-wrapper" id="yui_3_17_2_1_1630751069829_228">
+
+        <div class="intrinsic" id="yui_3_17_2_1_1630751069829_227">
+          
+            <div style="
+                
+                
+
+                
+              " class="
+                
+                image-inset
+                
+                  content-fit
+                
+              " data-animation-role="image" data-description="" id="yui_3_17_2_1_1630751069829_226">
+            
+              <div style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+" id="yui_3_17_2_1_1630751069829_225">
+            
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594287919734-64JPDT4LLGBQGYYKOZY2/smartmockups_kceluozy.png" alt="Video 3: biodiversity data - In video three, we take a look at geographical biodiversity data taken from GBIF" loading="lazy"/></noscript>
+              <img data-src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594287919734-64JPDT4LLGBQGYYKOZY2/smartmockups_kceluozy.png" data-image="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594287919734-64JPDT4LLGBQGYYKOZY2/smartmockups_kceluozy.png" data-image-dimensions="1591x834" data-image-focal-point="0.5,0.5" loading="lazy" alt="smartmockups_kceluozy.png" class="loaded" data-image-resolution="500w" src="./Biological data exploration book — Python for Biologists_files/smartmockups_kceluozy.png" style="">
+              <div class="image-overlay" style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+"></div>
+            
+              </div>
+            
+          
+            </div>
+          
+
+        </div>
+
+        
+          
+          <figcaption class="image-card-wrapper" data-width-ratio="">
+            <div class="image-card sqs-dynamic-text-container">
+
+              
+                <div class="image-title-wrapper"><div class="image-title sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">Video 3: biodiversity data</p></div></div>
+              
+
+              
+                <div class="image-subtitle-wrapper"><div class="image-subtitle sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">In video three, we take a look at geographical biodiversity data taken from GBIF</p></div></div>
+              
+
+              
+
+            </div>
+          </figcaption>
+        
+
+      </figure>
+
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285991740_50918"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">This video covers:</p><ul data-rte-list="default"><li><p class="" style="white-space:pre-wrap;">choosing relevant columns from huge datasets</p></li><li><p class="" style="white-space:pre-wrap;">log/log plots</p></li><li><p class="" style="white-space:pre-wrap;">analyzing time series data, including resampling</p></li><li><p class="" style="white-space:pre-wrap;">making geographical distribution plots</p></li></ul><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1594285991740_51940"><div class="sqs-block-content"><hr></div></div><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-yui_3_17_2_1_1594285991740_52907"><div class="sqs-block-content" id="yui_3_17_2_1_1630751069829_247">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+      <figure class="sqs-block-image-figure image-block-outer-wrapper image-block-v2 design-layout-card combination-animation-none individual-animation-none individual-text-animation-none image-position-left sqs-text-ready" data-scrolled="" data-test="image-block-v2-outer-wrapper" id="yui_3_17_2_1_1630751069829_246">
+
+        <div class="intrinsic" id="yui_3_17_2_1_1630751069829_245">
+          
+            <div style="
+                
+                
+
+                
+              " class="
+                
+                image-inset
+                
+                  content-fit
+                
+              " data-animation-role="image" data-description="" id="yui_3_17_2_1_1630751069829_244">
+            
+              <div style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+" id="yui_3_17_2_1_1630751069829_243">
+            
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594288129011-0CK2RJF4F44WVX2IIDIQ/image-asset.png" alt="Video 4: experimental behavior data - In video four, we look at an example of an animal behavior experiment" loading="lazy"/></noscript>
+              <img data-src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594288129011-0CK2RJF4F44WVX2IIDIQ/image-asset.png" data-image="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594288129011-0CK2RJF4F44WVX2IIDIQ/image-asset.png" data-image-dimensions="1591x834" data-image-focal-point="0.5,0.5" alt="" loading="lazy" class="loaded" data-image-resolution="500w" src="./Biological data exploration book — Python for Biologists_files/image-asset.png">
+              <div class="image-overlay" style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+"></div>
+            
+              </div>
+            
+          
+            </div>
+          
+
+        </div>
+
+        
+          
+          <figcaption class="image-card-wrapper" data-width-ratio="">
+            <div class="image-card sqs-dynamic-text-container">
+
+              
+                <div class="image-title-wrapper"><div class="image-title sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">Video 4: experimental behavior data</p></div></div>
+              
+
+              
+                <div class="image-subtitle-wrapper"><div class="image-subtitle sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">In video four, we look at an example of an animal behavior experiment</p></div></div>
+              
+
+              
+
+            </div>
+          </figcaption>
+        
+
+      </figure>
+
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285991740_54518"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">You'll learn:</p><ul data-rte-list="default"><li><p class="" style="white-space:pre-wrap;">how to read Excel files with multiple sheets</p></li><li><p class="" style="white-space:pre-wrap;">how to read data files directly from the web</p></li><li><p class="" style="white-space:pre-wrap;">using visualization for quality control of repeated trials</p></li><li><p class="" style="white-space:pre-wrap;">finding correlations and confounding variables using regression plots</p></li></ul><p class="" style="white-space:pre-wrap;">Just like in the book, all the video files come with <strong>working code</strong> in Jupyter notebooks that you can use to run the same analysis live, or <strong>tweak for your own research</strong>. </p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1594285991740_55493"><div class="sqs-block-content"><hr></div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285991740_55845"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;"><strong>If you work with data of any size, getting to grips with data exploration in Python is one of the biggest boosts you can make to your research and your career.</strong></p><p class="" style="white-space:pre-wrap;">Free your data from Excel! Transform your messy spreadsheets into clean, tidy tables! Understand your data better!</p><p class="" style="white-space:pre-wrap;">Ready to get started? Check out the packages below (and if you want to see a complete chapter list, scroll down to the bottom of the page). </p><p class="" style="white-space:pre-wrap;">All of the packages come with a no-questions-asked refund policy so you can buy with confidence. My goal with these books and videos is to make them directly useful to you - if they don’t work for you, you can get your money back right away. </p><p class="" style="white-space:pre-wrap;">You can pay securely with a credit card or with Paypal. If you need an invoice instead, just email martin@pythonforbiologists.com and we’ll arrange it.</p></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1594285991740_59256"><div class="sqs-block-content"><hr></div></div><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-yui_3_17_2_1_1594285991740_57220"><div class="sqs-block-content" id="yui_3_17_2_1_1630751069829_265">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+      <figure class="sqs-block-image-figure image-block-outer-wrapper image-block-v2 design-layout-card combination-animation-none individual-animation-none individual-text-animation-none image-position-right sqs-text-ready" data-scrolled="" data-test="image-block-v2-outer-wrapper" id="yui_3_17_2_1_1630751069829_264">
+
+        <div class="intrinsic" id="yui_3_17_2_1_1630751069829_263">
+          
+            <div style="
+                
+                
+
+                
+              " class="
+                
+                image-inset
+                
+                  content-fit
+                
+              " data-animation-role="image" data-description="" id="yui_3_17_2_1_1630751069829_262">
+            
+              <div style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+" id="yui_3_17_2_1_1630751069829_261">
+            
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594289267005-FP1ORERFEXHJMGZZPB0K/bundle_including_videos.png" alt="The complete package: bookshelf plus videos - Everything for complete beginners: the Biological Data Exploration book, the two previous Python for Biologists books, and all the videos" loading="lazy"/></noscript>
+              <img data-src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594289267005-FP1ORERFEXHJMGZZPB0K/bundle_including_videos.png" data-image="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594289267005-FP1ORERFEXHJMGZZPB0K/bundle_including_videos.png" data-image-dimensions="2353x2380" data-image-focal-point="0.5,0.5" loading="lazy" alt="bundle_including_videos.png" class="loaded" data-image-resolution="500w" src="./Biological data exploration book — Python for Biologists_files/bundle_including_videos.png" style="">
+              <div class="image-overlay" style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+"></div>
+            
+              </div>
+            
+          
+            </div>
+          
+
+        </div>
+
+        
+          
+          <figcaption class="image-card-wrapper" data-width-ratio="">
+            <div class="image-card sqs-dynamic-text-container">
+
+              
+                <div class="image-title-wrapper"><div class="image-title sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">The complete package: bookshelf plus videos</p></div></div>
+              
+
+              
+                <div class="image-subtitle-wrapper"><div class="image-subtitle sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">Everything for complete beginners: the <em>Biological Data Exploration</em> book, the two previous Python for Biologists books, and all the videos</p></div></div>
+              
+
+              
+
+            </div>
+          </figcaption>
+        
+
+      </figure>
+
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285991740_60912"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">This is the complete package, intended for those who’ve never used Python before, or who want a refresher before diving in to the data exploration material. </p><p class="" style="white-space:pre-wrap;">It includes the first two Python for Biologists books (<em>Python for Biologists</em> and <em>Advanced Python for biologists</em>), which together will take you from the very basics of programming and Python to give you all the background you’ll need to follow everything in the data exploration book. </p><p class="" style="white-space:pre-wrap;">These two books, along with the <em>Biological Data Exploration</em> book, come as searchable, DRM-free PDF files that you can keep forever and read on any device, along with exercise and example files to practice on. </p><p class="" style="white-space:pre-wrap;">You’ll also get the dataset walkthrough videos as high definition files that you can download and watch on any device. The videos come with interactive Jupyter notebook files that you can run, edit, and reuse for your own datasets. </p><p class="" style="white-space:pre-wrap;">Your files will be delivered by email, so you can start reading (and watching) right away. And you’ll get free access to any updates to the books (for example, when code changes to reflect changes in the libraries) and videos (for example, when new videos are added).</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p></div></div><div class="sqs-block markdown-block sqs-block-markdown" data-block-type="44" id="block-yui_3_17_2_1_1594368939361_41429"><div class="sqs-block-content"><div data-preserve-html-node="true" class="sqs-block button-block sqs-block-button yui3-dd-drop yui3-dd-draggable" data-block-type="53" id="block-yui_3_17_2_3_1499251926361_48227"><div data-preserve-html-node="true" class="sqs-block-content">
+<div data-preserve-html-node="true" class="sqs-block-button-container--center" data-alignment="center" data-button-size="large">
+  <script data-preserve-html-node="true" src="./Biological data exploration book — Python for Biologists_files/gumroad.js.download"></script>
+    <a data-preserve-html-node="true" href="https://gum.co/GLgxn?wanted=true" target="_blank" class="sqs-block-button-element--large sqs-block-button-element" data-initialized="true" data-gumroad-single-product="true">buy the complete package now for $169</a>
+</div></div></div></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1594285991740_81701"><div class="sqs-block-content"><hr></div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="12.796208530805687" data-block-type="21" id="block-yui_3_17_2_1_1594368939361_72727"><div class="sqs-block-content sqs-intrinsic" id="yui_3_17_2_1_1630751069829_325" style="padding-bottom: 12.7962%;">&nbsp;</div></div><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-yui_3_17_2_1_1594285991740_82055"><div class="sqs-block-content" id="yui_3_17_2_1_1630751069829_283">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+      <figure class="sqs-block-image-figure image-block-outer-wrapper image-block-v2 design-layout-card combination-animation-none individual-animation-none individual-text-animation-none image-position-right sqs-text-ready" data-scrolled="" data-test="image-block-v2-outer-wrapper" id="yui_3_17_2_1_1630751069829_282">
+
+        <div class="intrinsic" id="yui_3_17_2_1_1630751069829_281">
+          
+            <div style="
+                
+                
+
+                
+              " class="
+                
+                image-inset
+                
+                  content-fit
+                
+              " data-animation-role="image" data-description="" id="yui_3_17_2_1_1630751069829_280">
+            
+              <div style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+" id="yui_3_17_2_1_1630751069829_279">
+            
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594290503125-MVQFZPJPQPXPSZH6UPE8/all.png" alt="The bookshelf package - The Biological Data Exploration book plus the previous two Python for Biologists books" loading="lazy"/></noscript>
+              <img data-src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594290503125-MVQFZPJPQPXPSZH6UPE8/all.png" data-image="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594290503125-MVQFZPJPQPXPSZH6UPE8/all.png" data-image-dimensions="2353x1241" data-image-focal-point="0.5,0.5" loading="lazy" alt="all.png" class="" data-image-resolution="500w" src="./Biological data exploration book — Python for Biologists_files/all.png" style="">
+              <div class="image-overlay" style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+"></div>
+            
+              </div>
+            
+          
+            </div>
+          
+
+        </div>
+
+        
+          
+          <figcaption class="image-card-wrapper" data-width-ratio="">
+            <div class="image-card sqs-dynamic-text-container">
+
+              
+                <div class="image-title-wrapper"><div class="image-title sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">The bookshelf package</p></div></div>
+              
+
+              
+                <div class="image-subtitle-wrapper"><div class="image-subtitle sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">The <em>Biological Data Exploration</em> book plus the previous two Python for Biologists books</p></div></div>
+              
+
+              
+
+            </div>
+          </figcaption>
+        
+
+      </figure>
+
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285991740_83386"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">Don’t like videos? This package includes the first two Python for Biologists books (<em>Python for Biologists</em> and <em>Advanced Python for biologists</em>), along with the <em>Biological Data Exploration</em> book.</p><p class="" style="white-space:pre-wrap;">The books come as searchable, DRM-free PDF files that you can keep forever and read on any device, along with exercise and example files to practice on. </p><p class="" style="white-space:pre-wrap;">And you’ll get free access to any updates to the books (for example, when code changes to reflect changes in the libraries).</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p></div></div><div class="sqs-block markdown-block sqs-block-markdown" data-block-type="44" id="block-yui_3_17_2_1_1594368939361_66274"><div class="sqs-block-content"><div data-preserve-html-node="true" class="sqs-block button-block sqs-block-button yui3-dd-drop yui3-dd-draggable" data-block-type="53" id="block-yui_3_17_2_3_1499251926361_48227"><div data-preserve-html-node="true" class="sqs-block-content">
+<div data-preserve-html-node="true" class="sqs-block-button-container--center" data-alignment="center" data-button-size="large">
+  <script data-preserve-html-node="true" src="./Biological data exploration book — Python for Biologists_files/gumroad.js.download"></script>
+    <a data-preserve-html-node="true" href="https://gum.co/JvvROp?wanted=true" target="_blank" class="sqs-block-button-element--large sqs-block-button-element" data-initialized="true" data-gumroad-single-product="true">buy the bookshelf package now for $79</a>
+</div></div></div></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1594285991740_86733"><div class="sqs-block-content"><hr></div></div><div class="sqs-block spacer-block sqs-block-spacer" data-aspect-ratio="16.46919431279621" data-block-type="21" id="block-yui_3_17_2_1_1594368939361_76013"><div class="sqs-block-content sqs-intrinsic" id="yui_3_17_2_1_1630751069829_328" style="padding-bottom: 16.4692%;">&nbsp;</div></div><div class="sqs-block image-block sqs-block-image sqs-text-ready" data-block-type="5" id="block-yui_3_17_2_1_1594285991740_88255"><div class="sqs-block-content" id="yui_3_17_2_1_1630751069829_301">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    
+
+      <figure class="sqs-block-image-figure image-block-outer-wrapper image-block-v2 design-layout-card combination-animation-none individual-animation-none individual-text-animation-none image-position-right sqs-text-ready" data-scrolled="" data-test="image-block-v2-outer-wrapper" id="yui_3_17_2_1_1630751069829_300">
+
+        <div class="intrinsic" id="yui_3_17_2_1_1630751069829_299">
+          
+            <div style="
+                
+                
+
+                
+              " class="
+                
+                image-inset
+                
+                  content-fit
+                
+              " data-animation-role="image" data-description="" id="yui_3_17_2_1_1630751069829_298">
+            
+              <div style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+" id="yui_3_17_2_1_1630751069829_297">
+            
+              <noscript><img src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594291660687-QFEU30QFZONYUBK4GCFC/smartmockups_kcafd4fa.png" alt="Just the book - The Biological Data Exploration book, with example and data files" loading="lazy"/></noscript>
+              <img data-src="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594291660687-QFEU30QFZONYUBK4GCFC/smartmockups_kcafd4fa.png" data-image="https://images.squarespace-cdn.com/content/v1/5924044359cc68d66c1b6e68/1594291660687-QFEU30QFZONYUBK4GCFC/smartmockups_kcafd4fa.png" data-image-dimensions="2102x1241" data-image-focal-point="0.5,0.5" loading="lazy" alt="smartmockups_kcafd4fa.png" class="" data-image-resolution="500w" src="./Biological data exploration book — Python for Biologists_files/smartmockups_kcafd4fa(1).png" style="">
+              <div class="image-overlay" style="
+  overflow: hidden;
+  
+    
+    
+    
+    
+  
+"></div>
+            
+              </div>
+            
+          
+            </div>
+          
+
+        </div>
+
+        
+          
+          <figcaption class="image-card-wrapper" data-width-ratio="">
+            <div class="image-card sqs-dynamic-text-container">
+
+              
+                <div class="image-title-wrapper"><div class="image-title sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">Just the book</p></div></div>
+              
+
+              
+                <div class="image-subtitle-wrapper"><div class="image-subtitle sqs-dynamic-text" data-width-percentage="24.5" style="font-size: 24.5%;"><p class="">The <em>Biological Data Exploration</em> book, with example and data files</p></div></div>
+              
+
+              
+
+            </div>
+          </figcaption>
+        
+
+      </figure>
+
+    
+
+  
+
+
+</div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285991740_102061"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">Don’t like videos and already know the basics of Python? This package includes the <em>Biological Data Exploration</em> book.</p><p class="" style="white-space:pre-wrap;">The book comes as a searchable, DRM-free PDF file that you can keep forever and read on any device, along with example code and data files to practice on. </p><p class="" style="white-space:pre-wrap;">And you’ll get free access to any updates to the book (for example, when code changes to reflect changes in the libraries).</p></div></div><div class="sqs-block markdown-block sqs-block-markdown" data-block-type="44" id="block-yui_3_17_2_1_1594368939361_69595"><div class="sqs-block-content"><div data-preserve-html-node="true" class="sqs-block button-block sqs-block-button yui3-dd-drop yui3-dd-draggable" data-block-type="53" id="block-yui_3_17_2_3_1499251926361_48227"><div data-preserve-html-node="true" class="sqs-block-content">
+<div data-preserve-html-node="true" class="sqs-block-button-container--center" data-alignment="center" data-button-size="large">
+  <script data-preserve-html-node="true" src="./Biological data exploration book — Python for Biologists_files/gumroad.js.download"></script>
+    <a data-preserve-html-node="true" href="https://gum.co/lWlUs?wanted=true" target="_blank" class="sqs-block-button-element--large sqs-block-button-element" data-initialized="true" data-gumroad-single-product="true">buy the book now for $39</a>
+</div></div></div></div></div><div class="sqs-block horizontalrule-block sqs-block-horizontalrule" data-block-type="47" id="block-yui_3_17_2_1_1594285991740_109874"><div class="sqs-block-content"><hr></div></div><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-yui_3_17_2_1_1594285991740_108728"><div class="sqs-block-content"><p class="" style="white-space:pre-wrap;">Frequently asked questions:</p><p class="" style="white-space:pre-wrap;"><strong>What’s covered in the book?</strong></p><p class="" style="white-space:pre-wrap;">Rather than trying to give an exhaustive tour pandas, seaborn, matplotlib and numpy (each of which could fill several books), the book concentrates on the most useful parts of each library. Here’s a complete list of chapters and topics:</p><ul data-rte-list="default"><li><p class="" style="white-space:pre-wrap;">getting data into pandas: series and dataframes, read_csv, dtypes/info/describe/head/len, missing data, giving column names</p></li><li><p class="" style="white-space:pre-wrap;">working with series: getting a single column, descriptive statistics, value_counts, broadcasting operations, numpy vectorized ufuncs, string methods, selecting multiple columns, setting an index, dropna, </p></li><li><p class="" style="white-space:pre-wrap;">filtering and selecting: boolean masks, basic filtering, isin, selecting with strings, multiple conditions, filter/select/aggregate pattern</p></li><li><p class="" style="white-space:pre-wrap;">pandas examples: turning series into list, iterating over unique values</p></li><li><p class="" style="white-space:pre-wrap;">intro to seaborn and plotting distributions: imports, distplot, setting title, distplot in a loop, relplot, hue and size for numerical values, adding a new column and plotting</p></li><li><p class="" style="white-space:pre-wrap;">special types of scatter plots: alpha/size/sample/hexbin/contour for large numbers, lmplot for regressions, pairwise plots</p></li><li><p class="" style="white-space:pre-wrap;">conditioning charts on categories: hue with category, size for category, style for category, small multiples with row/column, multiples with relplot</p></li><li><p class="" style="white-space:pre-wrap;">categorical axes wtih seaborn: about different types of categories, strip plots, swarm plots, multiples, box plots, problems with order, boxplots hide distribution details, violin plots, boxen plots, bar plots, point plots, line charts, count plots</p></li><li><p class="" style="white-space:pre-wrap;">styling figures with seaborn: three levels (seaborn high. seaborn low, matplotlib), aspect/height, labels, styles and contexts, passing keywords, </p></li><li><p class="" style="white-space:pre-wrap;">working with colours in seaborn: setting single colours, setting palettes, sequential data, don't use rainbows, custom sequential, categorical palettes, redundant information, diverging palettes, when to use colour, matching between charts, colour plus style, displaying redundant catfor book layoutegories, adding metadata, highlighting categories, using colours consistently, don't reuse</p></li><li><p class="" style="white-space:pre-wrap;">working with groups in pandas: types of categories, uniqueness, groupby, grouping on multiple columns, aggregating, turning into dataframes, filtering, transforming, iterating over groups, sorting to get group names</p></li><li><p class="" style="white-space:pre-wrap;">binning data: simple binary with filter and replace, increased options for visualisation, using pd.cut, range, uneven bins, exponential bins, using size for ordered categories, turning categories into ordered ones.</p></li><li><p class="" style="white-space:pre-wrap;">Long vs wide form and indices: why long data is best for visualization, using unstack to make a summary, using melt to get data into tidy form, setting an index, index performance, multi indexing, index slicing and loc</p></li><li><p class="" style="white-space:pre-wrap;">Matrix charts: displaying summary tables, setting scales, annotation, missing data, lots of categories, diverging palettes, binning, custom annotation, clustering walkthrough, row/col cluster, normalizing, color annotation, bubble grids, plotting context</p></li><li><p class="" style="white-space:pre-wrap;">Tricky data files in pandas: awkward input files, skiprows, setting names, using columns, footers, comments, thousands/decimals, boolean values, method chaining, assign and pipe, concat, adding a column by assigning a series, merging, inner/outer, dealing with large datasets, skipping columns, categories, precision</p></li><li><p class="" style="white-space:pre-wrap;">Using facet grids directly: making a facetgrid, using map for simple things, using map_dataframe with custom functions, reusing custom functions, using hue for single charts, small multiple heat maps</p></li><li><p class="" style="white-space:pre-wrap;">Unexpected behaviours: missing groups in groupby, fixing it with categories, breaking it with multiple grouping, workarounds, unsorted categories after unstacking, min_count in sum, odd scales in seaborn</p></li><li><p class="" style="white-space:pre-wrap;">High performance pandas: looping vs. vectorization, looping vs. apply, apply on dataframes, caching, replace and memoization, sampling large datasets, categories, indices, unique indices</p></li><li><p class="" style="white-space:pre-wrap;">Further reading: datetimes, alternative syntax, plotting directly from pandas, jupyter widgets, bokeh, machine learning, statistics</p></li></ul><p class="" style="white-space:pre-wrap;"><strong>Do I need to know Python in order to follow the book?</strong></p><p class="" style="white-space:pre-wrap;">Yes - you don’t need to be a Python expert, but you do need to know the basics: the book isn’t intended for complete beginners. If you’ve never used Python before, you’ll need to learn the core of the language first. You can do this by buying one of the bookshelf packages (which includes <em>Python for Biologists</em>, which <strong>is</strong> intended for complete beginners), or following various introductory Python tutorials online (including the one on this site).</p><p class="" style="white-space:pre-wrap;"><strong>Who are you?</strong></p><p class="" style="white-space:pre-wrap;">Hi, I’m Martin - formerly a bioinformatics researcher and lecturer at the University of Edinburgh; now a freelance Python writer and trainer. See the about page for more info.</p><p class="" style="white-space:pre-wrap;"><strong>Can I buy a group license for my lab/students/colleagues?</strong></p><p class="" style="white-space:pre-wrap;">Sure, drop me an email martin@pythonforbiologists.com and we’ll work something out.</p><p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p></div></div></div></div></div>
+        </div><!--
+        -->
+        
+      </main>
+
+      <div id="preFooter" class="unscrolled">
+        <div class="pre-footer-inner">
+          <div class="sqs-layout sqs-grid-12 columns-12" data-layout-label="Pre-Footer Content" data-type="block-field" data-updated-on="1553685288147" id="preFooterBlocks"><div class="row sqs-row"><div class="col sqs-col-12 span-12"><div class="sqs-block newsletter-block sqs-block-newsletter rendered" data-block-type="51" id="block-yui_3_17_2_1_1553685067715_3679"><div class="sqs-block-content">
+
+
+<div class="newsletter-form-wrapper
+  
+  newsletter-form-wrapper--layoutFloat
+  newsletter-form-wrapper--alignCenter
+  
+  ">
+  <form class="newsletter-form" data-form-id="5c9b5a697817f78585390cc3" autocomplete="on" method="POST" novalidate="" onsubmit="return (function (form) {
+    Y.use(&#39;squarespace-form-submit&#39;, &#39;node&#39;, function usingFormSubmit(Y) {
+      (new Y.Squarespace.FormSubmit(form)).submit({
+        formId: &#39;5c9b5a697817f78585390cc3&#39;,
+        collectionId: &#39;&#39;,
+        objectName: &#39;preFooterBlocks&#39;
+      });
+    });
+    return false;
+  })(this);">
+    <header class="newsletter-form-header">
+      <h2 class="newsletter-form-header-title">sign up for the python for biologists newsletter</h2>
+      <div class="newsletter-form-header-description"><p>Get updates about new articles on this site and others, useful tutorials, and cool bioinformatics Python projects. No more than once a week; never spam.</p></div>
+    </header>
+    <div class="newsletter-form-body">
+      <div class="newsletter-form-fields-wrapper form-fields" style="vertical-align: bottom;">
+        
+        
+          
+            <div id="email-yui_3_17_2_1_1553685067715_3684" class="newsletter-form-field-wrapper form-item field email required" style="vertical-align: bottom;">
+              <label class="newsletter-form-field-label title" for="email-yui_3_17_2_1_1553685067715_3684-field">Email Address</label>
+              <input id="email-yui_3_17_2_1_1553685067715_3684-field" class="newsletter-form-field-element field-element" name="email" x-autocompletetype="email" type="text" spellcheck="false" placeholder="Email Address">
+            </div>
+          
+        
+          
+        
+      </div>
+      <div data-animation-role="button" class="newsletter-form-button-wrapper submit-wrapper" style="vertical-align: bottom;">
+        <button class="newsletter-form-button sqs-system-button sqs-editable-button-layout sqs-editable-button-style sqs-editable-button-shape" type="submit" value="Sign up now"><span class="newsletter-form-spinner sqs-spin light large"></span><span class="newsletter-form-button-label">Sign up now</span><span class="newsletter-form-button-icon"></span></button>
+      </div>
+      
+        
+      
+    </div>
+    <div class="newsletter-form-footnote"><p>We respect your privacy.</p></div>
+    <div class="hidden form-submission-text">Thank you!</div>
+    <div class="hidden form-submission-html" data-submission-html=""></div>
+  </form>
+</div>
+</div></div></div></div></div>
+        </div>
+      </div>
+
+      <footer id="footer" role="contentinfo">
+        <div class="footer-inner">
+          <div class="nav-wrapper back-to-top-nav"><nav><div class="back-to-top"><a href="https://pythonforbiologists.com/biological-data-exploration-book#header">Back to Top</a></div></nav></div>
+          
+
+
+          
+          <div class="sqs-layout sqs-grid-12 columns-12" data-layout-label="Footer Content" data-type="block-field" data-updated-on="1456895570456" id="footerBlocks"><div class="row sqs-row"><div class="col sqs-col-12 span-12"><div class="sqs-block html-block sqs-block-html" data-block-type="2" id="block-713fe491a2c303b33937"><div class="sqs-block-content"><p class="text-align-center">Powered by <a target="_blank" href="http://www.squarespace.com/?channel=word_of_mouth&amp;subchannel=customer&amp;source=footer&amp;campaign=4fd1028ee4b02be53c65dfb3">Squarespace</a></p></div></div></div></div></div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="./Biological data exploration book — Python for Biologists_files/site-bundle.js.download" type="text/javascript"></script>
+    <script async="" defer="" src="./Biological data exploration book — Python for Biologists_files/latest.js.download"></script>
+<noscript><img src="https://san.pythonforbiologists.com/noscript.gif" alt=""/></noscript><script type="text/javascript" data-sqs-type="imageloader-bootstrapper">(function() {if(window.ImageLoader) { window.ImageLoader.bootstrap({}, document); }})();</script><script>Squarespace.afterBodyLoad(Y);</script><svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none" data-usage="social-icons-svg"><symbol id="twitter-icon" viewBox="0 0 64 64"><path d="M48,22.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6 C41.7,19.8,40,19,38.2,19c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5c-5.5-0.3-10.3-2.9-13.5-6.9c-0.6,1-0.9,2.1-0.9,3.3 c0,2.3,1.2,4.3,2.9,5.5c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,2.9,10.1,2.9c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C46,24.5,47.1,23.4,48,22.1z"></path></symbol><symbol id="twitter-mask" viewBox="0 0 64 64"><path d="M0,0v64h64V0H0z M44.7,25.5c0,0.3,0,0.6,0,0.8C44.7,35,38.1,45,26.1,45c-3.7,0-7.2-1.1-10.1-2.9 c0.5,0.1,1,0.1,1.6,0.1c3.1,0,5.9-1,8.2-2.8c-2.9-0.1-5.3-2-6.1-4.6c0.4,0.1,0.8,0.1,1.2,0.1c0.6,0,1.2-0.1,1.7-0.2 c-3-0.6-5.3-3.3-5.3-6.4c0,0,0-0.1,0-0.1c0.9,0.5,1.9,0.8,3,0.8c-1.8-1.2-2.9-3.2-2.9-5.5c0-1.2,0.3-2.3,0.9-3.3 c3.2,4,8.1,6.6,13.5,6.9c-0.1-0.5-0.2-1-0.2-1.5c0-3.6,2.9-6.6,6.6-6.6c1.9,0,3.6,0.8,4.8,2.1c1.5-0.3,2.9-0.8,4.2-1.6 c-0.5,1.5-1.5,2.8-2.9,3.6c1.3-0.2,2.6-0.5,3.8-1C47.1,23.4,46,24.5,44.7,25.5z"></path></symbol><symbol id="twitter-icon" viewBox="0 0 64 64"><path d="M48,22.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6 C41.7,19.8,40,19,38.2,19c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5c-5.5-0.3-10.3-2.9-13.5-6.9c-0.6,1-0.9,2.1-0.9,3.3 c0,2.3,1.2,4.3,2.9,5.5c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,2.9,10.1,2.9c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C46,24.5,47.1,23.4,48,22.1z"></path></symbol><symbol id="twitter-mask" viewBox="0 0 64 64"><path d="M0,0v64h64V0H0z M44.7,25.5c0,0.3,0,0.6,0,0.8C44.7,35,38.1,45,26.1,45c-3.7,0-7.2-1.1-10.1-2.9 c0.5,0.1,1,0.1,1.6,0.1c3.1,0,5.9-1,8.2-2.8c-2.9-0.1-5.3-2-6.1-4.6c0.4,0.1,0.8,0.1,1.2,0.1c0.6,0,1.2-0.1,1.7-0.2 c-3-0.6-5.3-3.3-5.3-6.4c0,0,0-0.1,0-0.1c0.9,0.5,1.9,0.8,3,0.8c-1.8-1.2-2.9-3.2-2.9-5.5c0-1.2,0.3-2.3,0.9-3.3 c3.2,4,8.1,6.6,13.5,6.9c-0.1-0.5-0.2-1-0.2-1.5c0-3.6,2.9-6.6,6.6-6.6c1.9,0,3.6,0.8,4.8,2.1c1.5-0.3,2.9-0.8,4.2-1.6 c-0.5,1.5-1.5,2.8-2.9,3.6c1.3-0.2,2.6-0.5,3.8-1C47.1,23.4,46,24.5,44.7,25.5z"></path></symbol></svg>
+
+  
+
+<div class="gumroad-loading-indicator"><i></i></div><div class="gumroad-scroll-container" style="max-width: 1366px; max-height: 657px; width: 0px; height: 0px;"><iframe scrolling="no" allowfullscreen="allowfullscreen" allowpaymentrequest="allowpaymentrequest" class="gumroad-overlay-iframe" src="./Biological data exploration book — Python for Biologists_files/overlay_page.html"></iframe></div></body></html>

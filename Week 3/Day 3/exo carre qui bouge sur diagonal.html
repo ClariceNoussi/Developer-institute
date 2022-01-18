@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head>	
+ </head>
+ <body>
+
+<button onclick="setInterval(move, 1000)">Click here</button>
+<button onclick="myStopFunction()">Stop time</button>
+<div style='height:400px; width:400px; background: yellow'>
+<div id='inner_div'style='height:50px; width: 50px; background-color:green; position:absolute'></div>
+</div>
+<script >
+
+   let inner_div= document.getElementsById("inner_div")
+   let deplacement=100
+   let deplacement_gauche=0
+
+  function move(){
+   deplcament +=10
+   deplacement_gauche +=10
+   inner_div.style.top=deplacement +"px"
+   inner_div.style.left=deplacement_gauche +"px"//valeur final top 130
+                     //left 230
+}
+function myStopFunction() {
+  clearInterval(timer);
+}
+                     
+</script>
+
+ </body>
+</html>
