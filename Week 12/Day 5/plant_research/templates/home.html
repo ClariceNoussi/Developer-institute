@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}Home page {% endblock title %}
+{% block content %}
+
+   <!-- jumbotron-->
+    {% load static %}
+ <header>
+ <!-- jumbotron-->
+    {% load static %}
+ <div
+  class="p-5 text-center bg-image rounded-3"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
+    height: 400px;
+  "
+>
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="text-white">
+        <h1 class="mb-3">PLANT RESEARCH APP</h1>
+        <h4 class="mb-3">The platform for researchers and passionate of natural drugs</h4>
+          <input class="btn btn-outline-light btn-lg" type="search" placeholder="Type the name of a plant or disease here" aria-label="Search" aria-describedby="search-addon"
+            style="width:400px" />
+           <a href="{% url 'plants'%}" class="btn btn-primary ">Search</a>
+      </div>
+    </div>
+  </div>
+ </div>
+
+</header>
+<body>
+    <!-- products-->
+  <section id="products" class="py-5">
+    <div class="container">
+      <h3 class="text-center mb-3">Some Natural Products</h3>
+      <div class="row d-flex justify-content-center align-content-center mt-4 pb-4">
+
+
+        <!-- products-->
+      {% if products %}
+       {% for product in products %}
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card listing-preview">
+            <img class="card-img-top" src="{{product.photo.url}}" alt="" width="300px" height="400px">
+            <div class="card-img-overlay">
+              <h2>
+                <span class="badge badge-warning text-success">${{ product.price }}</span>
+              </h2>
+              <div class="row text-secondary pb-2">
+                <div class="col-6">
+                  <i class="fas fa-clock"></i> {{ product.list_date | timesince }}</div>
+              </div>
+
+            </div>
+              <h4 class="text-success align text-center">{{ product.title }}</h4>
+              <hr>
+
+
+          </div>
+                      <a href="{% url 'product' product.id %}" class="btn btn-outline-warning btn-block">More Info</a>
+
+        </div>
+      {% endfor %}
+      {% else %}
+            <div class="col-md-12">
+               <p>No products available</p>
+                </div>
+      {% endif %}
+      </div>
+    </div>
+  </section>
+
+
+
+    <div class="row d-flex justify-content-center align-content-center mt-4 pb-4">
+
+    <a href="{% url 'products' %}" class="btn btn-primary display-flex text-white btn-lg" >See more natural products available  here</a>
+
+      </div>
+
+{% endblock content %}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Title {% endblock %}</title>
+    {% block styles %} {% endblock %}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<body>
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="base.html">
+        <img src= "{% static '/img/logo.jpg' %}" class="logo" alt="" width="50px" height="50px">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home'  %}">HOME</a>
+      </li><li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'plants' %}">PLANTS & DISEASES</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'products' %}">PRODUCTS</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'forum' %}">FORUM</a>
+      </li>
+    </div>
+  </div>
+      </li>
+    </ul>
+       <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+          <li
+          {% if 'dashboard' in request.path %}
+            class="nav-item active mr-3"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}
+          >
+            <a class="nav-link" href="{% url 'dashboard' %}">
+              <i class="fas fa-cogs"></i> Welcome {{ user.username }}</a
+            >
+            <li class="nav-item">
+            <a class="nav-link" href={% url 'panier' %}><i class="fas fa-shopping-cart" style="color:white;"></i></a>
+            </li>
+            <li class="nav-item mr-3">
+            <a href="javascript:{document.getElementById('logout').submit()}"
+            class="nav-link">
+              <i class="fas fa-sign-out-alt">Logout</i>
+            </a>
+            <form action="{% url 'logout' %}" method="POST" id="logout">
+              {% csrf_token %}
+              <input type="hidden">
+            </form>
+          </li>
+        {% else %}
+          <li
+          {% if 'register' in request.path %}
+            class="nav-item active mr-3"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}
+          >
+            <a class="nav-link" href="{% url 'register' %}">
+              <i class="fas fa-user-plus"></i> Register</a
+            >
+          </li>
+          <li
+            {% if 'plants' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %} >
+            <a class="nav-link" href="{% url 'login' %}">
+              <i class="fas fa-sign-in-alt"></i>
+
+              Login</a
+            >
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% block content %}{% endblock content %}
+
+    <footer id="main-footer" class="py-4 bg-dark text-white text-center">
+    <span> MADE by DJOUWOUG NOUSSI CLARICE</span>
+    <br class="year"> Copyright&copy; 2022 </br> PLANT RESEARCH APP
+    <section id="contacts" class="p-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <i class="fas fa-phone"></i> (676)-11-33-55
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-envelope-open"></i> clarice.djouwoug@gmail.com
+        </div>
+        <div class="col-md-4">
+          <div class="social text-right">
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-pinterest"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </footer>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

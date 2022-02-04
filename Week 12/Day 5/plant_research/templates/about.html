@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} | About Us{% endblock %}
+
+{% block content %}
+
+<section id="showcase-inner" class="py-5 text-info">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h1 class="display-3">About PLANT RESEARCH APP</h1>
+        <p class="lead">
+          The application for researchers and passionate of natural products
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{% url 'home' %}"> <i class="fas fa-home"></i> Home</a>
+        </li>
+        <li class="breadcrumb-item active">About</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Breadcrumb -->
+
+  <section id="about" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>We help you with previous data on a particular plant to start your research  or  achieve your research purpose on medicinal plants</h2>
+          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+          <img src="{%  static 'img/aboutimage.jpg' %}" alt="" width="700px" height="500px">
+          <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis esse officia repudiandae ad saepe ex, amet
+            neque quod accusamus rem quia magnam magni dolorum facilis ullam minima perferendis? Exercitationem at quaerat
+            commodi id libero eveniet harum perferendis laborum molestias quia.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Head of the laboratory</h5>
+              <img class="card-img-top" src="{%  static 'img/team/theo.jpeg' %}" alt=" " width="400px" height="400px">
+              <h4> DIMO THEOPHILE</h4>
+                <p class="text-success">Full professor</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> dimo55@yahoo.fr</p>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nesciunt amet, illo itaque similique repellat.
+                content.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-5">
+    <div class="container">
+      <h2 class="text-center">TEAM MEMBERS</h2>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <img src="{%  static 'img/team/woman.jpeg' %}" alt="" class="rounded-circle mb-3" width="300px" height="300px">
+          <h4>Florence NGUEGUIM</h4>
+          <p class="text-success">
+            <i class="text-success"></i> Associate professor</p>
+          <hr>
+
+          <p>
+            <i class="fas fa-envelope-open"></i> tsnguguim@yahoo.fr</p>
+        </div>
+
+        <div class="col-md-4">
+          <img src="{%  static 'img/team/woman.jpeg' %}" alt="" class="rounded-circle mb-3" width="300px" height="300px">
+          <h4>Raceline GOUNOUE</h4>
+          <p class="text-success">Associate professor</p>
+          <hr>
+          <p>
+
+          <p>
+            <i class="fas fa-envelope-open"></i> fotsingrace@gmail.com</p>
+        </div>
+ <div class="col-md-4">
+          <img src="{%  static 'img/team/moi.jpg' %}" alt="" class="rounded-circle mb-3" width="300px" height="300px">
+          <h4>Clarice NOUSSI</h4>
+          <p class="text-success">PhD</p>
+          <hr>
+
+            <i class="fas fa-envelope-open"></i> clarice.djouwoug@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ <!-- Work -->
+  <section id="work" class="bg-light text-black text-center">
+    <h2 class="display-4">EXPLORE THE PLATFORM</h2>
+    <a href="{% url 'plants' %}"class="btn btn-secondary text-white btn-lg">Discover all the plants studied on this platform</a>
+  <hr>
+    <a href="{% url 'products' %}" class="btn btn-secondary text-white btn-lg">Check some natural products available  here</a>
+  </hr>
+  <br><br>
+  </section>
+  </section>
+
+{% endblock content %}

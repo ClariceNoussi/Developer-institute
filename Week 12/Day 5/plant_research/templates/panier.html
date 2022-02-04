@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block title %}|Shopping cart{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Hey {{user}} here are your products</h2>
+    <p>confirm  your purchases with one click</p>
+    <div class="row">
+    {% for product in products %}
+        {% if product.photo %}
+        <div class="col col-4">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{product.photo.url}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{product.title|upper}}</h5>
+
+              </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    <button class="btn btn-outline-warning mt-4">Confirm purchase</button>
+</div>
+{% endblock %}
